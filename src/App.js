@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Title from "./Title";
+import Title from "./Title.js";
 import SearchBar from "./SearchBar";
 import "./App.css";
 
