@@ -3,6 +3,7 @@ import Title from "./Title.js";
 import SearchBar from "./SearchBar";
 import { Container } from 'react-materialize';
 import "./App.css";
+import RecipeView from "./RecipeView.js";
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
               <SearchBar />
             </div>
           </main>
+          <RecipeView />
         </Container>
       </div>
     );
