@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Chip } from 'react-materialize';
+import { Button, Card, CardTitle } from 'react-materialize';
 
 class SearchBar extends Component {
   render() {
     return (
       <div>
-        <p>Search Bar will go here.</p>
+        <Button waves="light">button</Button>
       </div>
     );
   }
