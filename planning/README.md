@@ -33,7 +33,7 @@ More details on the backend, including a list of models and properties, can be [
 
 ## Technologies Used
 
-- [Mongoose](https://mongoosejs.com/) - The web framework used
-- [Express](https://expressjs.com/) - Dependency Management
 - [React](https://reactjs.org/) - JavaScript library for building user interfaces
-- [Node](https://nodejs.org/en/) - Used to generate RSS Feeds
+- [React Materialize](https://react-materialize.github.io/#/) - Material design components for react
+
+
