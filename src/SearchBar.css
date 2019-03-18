@@ -1,0 +1,16 @@
+input[type=text] {
+  border-color: #000000;
+}
+
+input[type=text]:focus:not([readonly]) {
+  border-color: #000000;
+  box-shadow: 0 1px 0 0 #000000;
+}
+
+.input-field label {
+  color: #000000;
+}
+
+input[type=text]:focus:not([readonly])+label {
+  color: #000000;
+}

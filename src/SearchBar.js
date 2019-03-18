@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Button, Card, CardTitle } from 'react-materialize';
+import './SearchBar.css';
+import { Input } from 'react-materialize';
 
 class SearchBar extends Component {
   render() {
     return (
       <div>
-        <Button waves="light">button</Button>
+        <Input label="What do you need to get rid of?" />
       </div>
     );
   }
