@@ -7,7 +7,7 @@ But what if you don't know what you want to make? And what if you have things la
 
 Emergency Recipe reverses the recipe search process – the user types in a list of ingredients on hand, and the service returns a list of recipes that could be made with those available items.
 
-The front end will be built using React, with a Materialize component library.  It will employ a colorful, flat design.
+The front end will be built using React, with a Materialize component library.  It will employ a colorful, flat design.  Details on the style can be [found here](https://github.com/pnblake/emergency-recipe-front/blob/master/planning/STYLES.md).
 
 To retrieve data it will make API calls to the back end, which is being built by another set of Coding Llamas.  
 
