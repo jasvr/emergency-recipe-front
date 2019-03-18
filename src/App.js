@@ -10,7 +10,6 @@ class App extends Component {
         <main>
           <div className="title">
             <Title />
-            {/* <img src="./assets/images/title-shard.svg" alt="Black shard" className="title-shard" /> */}
           </div>
 
           <div className="search-bar">
