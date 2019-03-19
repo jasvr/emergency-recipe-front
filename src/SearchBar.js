@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import IngredientChips from './IngredientChips';
 import './SearchBar.css';
 import { Input } from 'react-materialize';
+import ResultsTable from "./ResultsTable";
 
 class SearchBar extends Component {
   constructor(props){
@@ -27,12 +28,20 @@ class SearchBar extends Component {
     console.log("State: ", this.state);
   }
 
+  componentDidMount(){
+    console.log("search bar component did mount.");
+  }
+
 
   render() {
     return (
       <div>
         <IngredientChips ingredients={this.state.ingredients} />
-        <Input onChange={this.handleInputChange} placeholder={"What do you need to get rid of?"} />
+        <Input
+          onChange={this.handleInputChange}
+          placeholder={"What do you need to get rid of?"}
+        />
+        <ResultsTable />
       </div>
     );
   }
