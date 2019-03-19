@@ -5,19 +5,10 @@ import { Table } from 'react-materialize';
 class ResultsTable extends Component {
 
   render() {
-    let exampleArray = [
-      "Fajitas",
-      "Omelet",
-      "Salad",
-      "Burrito",
-      "Quiche",
-      "Soup"
-    ];
-
-    let rowItems = exampleArray.map(recipe => {
+    let rowItems = this.props.searchResults.map(recipe => {
       return (
           <tr>
-            {recipe}
+            {recipe.title}
           </tr>
       )
 

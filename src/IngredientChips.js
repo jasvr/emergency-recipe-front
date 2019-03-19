@@ -6,9 +6,9 @@ class IngredientChips extends Component {
   render() {
     let ChipItems;
     if (this.props.ingredients !== null){
-      ChipItems = this.props.ingredients.map(ingredient => {
+      ChipItems = this.props.ingredients.map((ingredient, id) => {
         return (
-          <Chip>{ingredient}</Chip>
+          <Chip key={id}>{ingredient}</Chip>
         );
       });
     }

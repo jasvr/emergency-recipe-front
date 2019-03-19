@@ -2,18 +2,20 @@ import React, { Component } from 'react';
 import IngredientChips from './IngredientChips';
 import './SearchBar.css';
 import { Input } from 'react-materialize';
-import { delay } from 'q';
-// import ResultsTable from "./ResultsTable";
+import ResultsTable from "./ResultsTable";
 
 let searchDelay;
-let searchDelayInterval = 1500;
+let searchDelayInterval = 2000;
+
+const API_URL = "https://emergency-recipe-backend.herokuapp.com/api/recipe";
+
 
 class SearchBar extends Component {
   constructor(props){
     super(props);
     this.state = {
       ingredients: [],
-      delay: undefined
+      searchResults: []
     }
 
   this.handleInputChange = this.handleInputChange.bind(this);
@@ -44,6 +46,18 @@ class SearchBar extends Component {
 
   doSearch(){
     console.log("Search called");
+    fetch(API_URL)
+      .then(res => res.json())
+      .then(res => {
+        console.log("Search result: ", res);
+        this.setState({
+          searchResults: res
+      })
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    // Dumb api call (return all recipes)
   }
   
 
@@ -60,7 +74,7 @@ class SearchBar extends Component {
           onKeyDown={this.clearSearchCountdown}
           placeholder={"What do you need to get rid of?"}
         />
-        {/* <ResultsTable /> */}
+        <ResultsTable searchResults={this.state.searchResults} />
       </div>
     );
   }
