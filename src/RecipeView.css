@@ -13,3 +13,13 @@ ol.direction-list{
     font-size: 1.4 em;
 }
 
+.card .card-image .card-title{
+    color: black;
+}
+
+.prep-time{
+    font-size: 2em;
+}
+.serving {
+    font-size: 2em;
+}

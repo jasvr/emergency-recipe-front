@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, CardPanel, Row, Card, CardTitle } from "react-materialize";
+import { Col, CardPanel, Row, Card, CardTitle, Pagination} from "react-materialize";
 import "./RecipeView.css";
 
 class RecipeView extends Component {
@@ -28,22 +28,26 @@ class RecipeView extends Component {
     return (
       <div>
         <Row>
-          <h2>Recipe</h2>
-        <Card
-          className="m"
-          header={
-            <CardTitle image="./temp_food_images/lasagna.jpg">
-              Card Title
-            </CardTitle>
-          }
-          actions={[<a href="#">Image from NY Times Cooking </a>]}
-        >
-          I am a very simple card. I am good at containing small bits of
-            information. I am convenient because I require little markup to use
-            effectively.
-  
-  
-        <Row>
+          <h2>Recipe Title</h2>
+          <Card
+            className="m"
+            header={
+              <CardTitle image="./temp_food_images/lasagna.jpg">
+                Image from NY Times Cooking
+              </CardTitle>
+            }
+            actions={[<a href="#">Image from NY Times Cooking </a>]}
+          >
+          <Row>
+            <Col>
+            <p className= "prep-time">Prep Time:</p> 
+              </Col>
+            <Col>
+            <p className="serving">Servings:</p> 
+              </Col>
+            </Row>
+
+            <Row>
               <Col s={12} m={4}>
                 <CardPanel className="teal lighten-4 black-text">
                   <h4>Ingredients</h4>
@@ -55,33 +59,23 @@ class RecipeView extends Component {
                 <CardPanel className="teal lighten-4 black-text">
                   <h4> Directions</h4>
                   <ol className="direction-list">{directionsList}</ol>
+                  <Pagination items={10} activePage={2} maxButtons={8} />
                 </CardPanel>
               </Col>
             </Row>
-
-
-
-
-
-        </Card>
-
-
-
-
-
-
-
-
-</Row>
-
-
-
-
-
+          </Card>
+        </Row>
 
         <Row>
-          <Col m={3} className="grid-example">
+          <Col m={1} className="grid-example">
             1
+          </Col>
+
+          <Col m={1} className="grid-example">
+            2
+          </Col>
+          <Col m={1} className="grid-example">
+            3
           </Col>
           <Col s={1} className="grid-example">
             4
