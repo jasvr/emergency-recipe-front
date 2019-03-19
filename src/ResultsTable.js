@@ -9,7 +9,7 @@ class ResultsTable extends Component {
       return (
           <tr key={id}>
             <td>
-              {recipe.title}
+            <a href={"/recipe/" + recipe._id}>{recipe.title}</a>
             </td>
           </tr>
       )
