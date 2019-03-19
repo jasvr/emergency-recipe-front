@@ -54,34 +54,42 @@ Give an example
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+<!-- Add additional notes about how to deploy this on a live system -->
+
+TK
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+<!-- * [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
 * [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds -->
+
+TK
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+<!-- Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us. -->
+
+TK
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+TK
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Liz Davidson** - *Back End* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Yoshi Maisami** - *Back End* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Jasmin Vargas** - *Front* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Paul Blake** - *Front End* - [Portfolio](https://pnblake.com)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+TK
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* H/T Tom Pawlak and his blog for his method of tokenizing strings in Javascript. [Read more here.](https://blog.abelotech.com/posts/split-string-into-tokens-javascript/)
+

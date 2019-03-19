@@ -8,6 +8,10 @@ input[type=text]:focus:not([readonly]) {
   box-shadow: 0 1px 0 0 #ffffff;
 }
 
+input[placeholder="What do you need to get rid of?"]{
+  color: #ffffff;
+}
+
 .input-field label {
   color: #ffffff;
 }
