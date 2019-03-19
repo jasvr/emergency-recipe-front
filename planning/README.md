@@ -36,4 +36,3 @@ More details on the backend, including a list of models and properties, can be [
 - [React](https://reactjs.org/) - JavaScript library for building user interfaces
 - [React Materialize](https://react-materialize.github.io/#/) - Material design components for react
 
-
