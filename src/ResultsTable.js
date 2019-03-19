@@ -5,10 +5,12 @@ import { Table } from 'react-materialize';
 class ResultsTable extends Component {
 
   render() {
-    let rowItems = this.props.searchResults.map(recipe => {
+    let rowItems = this.props.searchResults.map((recipe, id) => {
       return (
-          <tr>
-            {recipe.title}
+          <tr key={id}>
+            <td>
+              {recipe.title}
+            </td>
           </tr>
       )
 
