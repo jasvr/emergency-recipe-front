@@ -19,13 +19,10 @@ class SearchBar extends Component {
     e.preventDefault();
     const target = e.target;
     const value = target.value;
-    // console.log("Input value: ", value);
     let tokenArray = value.match(/\S+/g);
-    console.log("tokenArray: ", tokenArray);
     this.setState({
       ingredients: tokenArray
     });
-    console.log("State: ", this.state);
   }
 
   componentDidMount(){
@@ -41,7 +38,7 @@ class SearchBar extends Component {
           onChange={this.handleInputChange}
           placeholder={"What do you need to get rid of?"}
         />
-        <ResultsTable />
+        {/* <ResultsTable /> */}
       </div>
     );
   }
