@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import './IngredientChips.css';
-import { Row, Col, Chip } from "react-materialize";
+import { Row, Chip } from "react-materialize";
 
 class IngredientChips extends Component {
   render() {
