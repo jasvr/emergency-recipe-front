@@ -16,6 +16,7 @@ class SearchBar extends Component {
     const target = e.target;
     const value = target.value;
     console.log("Input value: ", value);
+    console.log(value.match(/\S+/g));
   }
 
 
