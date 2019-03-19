@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Card, CardTitle } from 'react-materialize';
+import { Button} from 'react-materialize';
 
 class SearchBar extends Component {
   render() {
