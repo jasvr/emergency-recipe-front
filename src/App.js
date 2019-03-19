@@ -1,6 +1,6 @@
 import React, { Component } from "react";
+import Home from './Home';
 import Title from "./Title.js";
-import SearchBar from "./SearchBar";
 import { Container } from 'react-materialize';
 import "./App.css";
 import RecipeView from "./RecipeView.js";
@@ -14,9 +14,8 @@ class App extends Component {
             <div className="title">
               <Title />
             </div>
-
-            <div className="search-bar">
-              <SearchBar />
+            <div>
+              <Home />
             </div>
           </main>
           <RecipeView />

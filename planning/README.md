@@ -1,95 +1,38 @@
 # Emergency Recipe Front End Planning
 
+## Project Idea
 
-## Current Features
+When it comes to finding dinner inspiration, the way for searching for recipes online is pretty straight forward – you type in the dish you want to make, you get a recipe, you buy the ingredients, and you make the dish.
 
+But what if you don't know what you want to make? And what if you have things laying around in the refrigerator you want to get rid off? Enter _Emergency Recipe_.
 
+Emergency Recipe reverses the recipe search process – the user types in a list of ingredients on hand, and the service returns a list of recipes that could be made with those available items.
 
-##Getting Started
+The front end will be built using React, with a Materialize component library. It will employ a colorful, flat design. Details on the style can be [found here](https://github.com/pnblake/emergency-recipe-front/blob/master/planning/STYLES.md).
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+To retrieve data it will make API calls to the back end, which is being built by another set of Coding Llamas.
 
-### Prerequisites
+More details on the backend, including a list of models and properties, can be [found here](https://github.com/pnblake/emergency-recipe-back/tree/master/planning).
 
-What things you need to install the software and how to install them
+## Wireframes
 
-```
-Give examples
-```
+#### Homepage
+![Alt text](images/homepage.jpg "Homepage")
 
-### Installing
+#### Homepage Idea 2
+![Alt text](images/homepage_2.jpg "Homepage Draft 2")
 
-A step by step series of examples that tell you how to get a development env running
+#### Recipe Page - Browser View
+![Alt text](images/recipe_page_desktop.jpg "Recipe Page - Browser View ")
 
-Say what the step will be
+#### Recipe Page - Mobile View
+![Alt text](images/recipe_page_mobile.jpg "Recipe Page - Mobile View")
 
-```
-Give the example
-```
+#### Day 1 Group Pics
+![Alt text](images/team_pic_2.jpg "Recipe Page - Mobile View")
 
-And repeat
+## Technologies Used
 
-```
-until finished
-```
+- [React](https://reactjs.org/) - JavaScript library for building user interfaces
+- [React Materialize](https://react-materialize.github.io/#/) - Material design components for react
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Mongoose](https://mongoosejs.com/) - The web framework used
-* [Express](https://expressjs.com/) - Dependency Management
-* [React](https://reactjs.org/) - 
-* [Node](https://nodejs.org/en/) - Used to generate RSS Feeds
-
-## Approach taken to build app
-
-##Unsolved problems
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-* **Paul Blake** - *PB* - [PurpleBooth](https://github.com/PurpleBooth)
-* **Jasmin Vargas** - *JV* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
