@@ -1,0 +1,25 @@
+.ingredients-list {
+    text-align: left;
+    font-size: 1.5em;
+}
+
+.direction-list{
+        text-align: left;
+        font-size: 1.5em;
+        margin: 0;
+}
+
+ol.direction-list{
+    font-size: 1.4 em;
+}
+
+.card .card-image .card-title{
+    color: black;
+}
+
+.prep-time{
+    font-size: 2em;
+}
+.serving {
+    font-size: 2em;
+}
