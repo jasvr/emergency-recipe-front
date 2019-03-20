@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
 import Home from "./Home";
 import Title from "./Title.js";
 import { Container } from "react-materialize";
@@ -15,12 +16,13 @@ class App extends Component {
             <div className="title">
               <Title />
             </div>
-            <div>
-              <Home />
-            </div>
+
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/recipe-view" component={RecipeView} />
+              <Route path="/new-recipe" component={RecipeFormView} />
+            </Switch>
           </main>
-          <RecipeView />
-          <RecipeFormView />
         </Container>
       </div>
     );
