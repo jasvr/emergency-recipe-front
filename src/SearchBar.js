@@ -5,7 +5,7 @@ import { Input } from "react-materialize";
 import ResultsTable from "./ResultsTable";
 
 let searchDelay;
-let searchDelayInterval = 2000;
+let searchDelayInterval = 500;
 
 const API_URL = "https://emergency-recipe-backend.herokuapp.com/api/recipe";
 
