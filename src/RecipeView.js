@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, CardPanel, Row, Card, CardTitle, Pagination} from "react-materialize";
+import { Col, CardPanel, Row, Card, CardTitle, Pagination, SideNav, Button, SideNavItem} from "react-materialize";
 import "./RecipeView.css";
 
 class RecipeView extends Component {
@@ -27,6 +27,12 @@ class RecipeView extends Component {
 
     return (
       <div>
+
+
+class="collapsible-body"
+
+
+        
         <Row>
           <h2>Recipe Title</h2>
           <Card
@@ -38,12 +44,12 @@ class RecipeView extends Component {
             }
             actions={[<a href="#">Image from NY Times Cooking </a>]}
           >
-          <Row>
-            <Col>
-            <p className= "prep-time">Prep Time:</p> 
+            <Row>
+              <Col>
+                <p className="prep-time">Prep Time:</p>
               </Col>
-            <Col>
-            <p className="serving">Servings:</p> 
+              <Col>
+                <p className="serving">Servings:</p>
               </Col>
             </Row>
 
@@ -63,8 +69,33 @@ class RecipeView extends Component {
                 </CardPanel>
               </Col>
             </Row>
+            <Row>
+              <Col s={12} m={12}>
+                <h4> Comments</h4>
+              </Col>
+            </Row>
+            <Row>
+              <Col s={12} m={5}>
+                <CardPanel className="teal lighten-4 black-text">
+                  <h4> Add a New Comment</h4>
+                </CardPanel>
+              </Col>
+
+              <Col s={12} m={7}>
+                <CardPanel className="teal lighten-4 black-text">
+                  <h4> User Comments</h4>
+
+
+                </CardPanel>
+              </Col>
+            </Row>
           </Card>
         </Row>
+
+
+
+
+
 
         <Row>
           <Col m={1} className="grid-example">
