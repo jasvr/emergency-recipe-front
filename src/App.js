@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Home from './Home';
+import Home from "./Home";
 import Title from "./Title.js";
-import { Container } from 'react-materialize';
+import { Container } from "react-materialize";
 import "./App.css";
 import RecipeView from "./RecipeView.js";
 import RecipeFormView from "./RecipeFormView";
