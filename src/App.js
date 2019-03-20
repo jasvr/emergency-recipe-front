@@ -6,7 +6,11 @@ import { Container } from "react-materialize";
 import "./App.css";
 import RecipeView from "./RecipeView.js";
 import RecipeFormView from "./RecipeFormView";
+<<<<<<< HEAD
 import Auth from './Auth';
+=======
+import NewRecipeLink from "./NewRecipeLink";
+>>>>>>> recipe-form-view
 
 class App extends Component {
   render() {
