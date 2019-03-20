@@ -1,0 +1,44 @@
+.login-form-box {
+  background-color: #FFD13B;
+}
+
+.input-field label {
+  font-size: 1rem;
+  color: #AC36B2;
+}
+
+input[type=text] {
+  border-bottom: 1px solid #AC36B2;
+}
+
+input[type=text]:focus:not([readonly]) {
+  border-bottom: 1px solid #AC36B2;
+  box-shadow: 0 1px 0 0 #AC36B2;
+  color: #AC36B2;
+}
+
+input[type=text]:focus:not([readonly]) + label {
+  color: #AC36B2;
+}
+
+input[type=password] {
+  border-bottom: 1px solid #AC36B2;
+}
+
+input[type=password]:focus:not([readonly]) {
+  border-bottom: 1px solid #AC36B2;
+  box-shadow: 0 1px 0 0 #AC36B2;
+  color: #AC36B2;
+}
+
+input[type=password]:focus:not([readonly]) + label {
+  color: #AC36B2;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+  color: #AC36B2;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover {
+  color: #FFFFFF;
+}

@@ -4,11 +4,10 @@
 
 - Rancho (Google)
 
-
 ## Colors
 
-#322A2A
-#2CE8A7
-#F422FF
-#E8C527
-#2BEFFF
+Dark Pink: #AC36B2
+Mustard: #FFD13B
+Main Pink: #F422FF
+Light Green: #07CCA4
+Dark (accent) Green: #0D997D

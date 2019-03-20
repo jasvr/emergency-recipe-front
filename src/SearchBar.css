@@ -1,3 +1,7 @@
+#mainSearch{
+  border-bottom: 1px solid #ffffff;
+}
+
 input[type=text] {
   border-color: #ffffff;
   color: #ffffff;
