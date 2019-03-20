@@ -9,12 +9,13 @@
         margin: 0;
 }
 
-ol.direction-list{
-    font-size: 1.4 em;
-}
-
+/* Recipe Title on top of Image */
 .card .card-image .card-title{
-    color: black;
+    color:black
+}
+/* Recipe Size on top of Image */
+.card .card-title {
+    font-size: 40px;
 }
 
 .prep-time{
