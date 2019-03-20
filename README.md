@@ -49,12 +49,10 @@ TK
 
 ## Authors
 
-* **Liz Davidson** - *Back End & Authentication * - [PurpleBooth](https://github.com/PurpleBooth)
-* **Yoshi Maisami** - *Back End* - [PurpleBooth](https://github.com/PurpleBooth)
-* **Jasmin Vargas** - *Front* - [PurpleBooth](https://github.com/PurpleBooth)
-* **Paul Blake** - *Front End* - [Portfolio](https://pnblake.com)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Liz Davidson** - *Back End & Authentication * - [GitHub]([https://github.com/PurpleBooth](https://github.com/ldavidson45))
+* **Yoshi Maisami** - *Back End & Senior Dev Outreach* - [GitHub](https://github.com/yoshimaisami)
+* **Jasmin Vargas** - *Front End & Forms* - [GitHub](https://github.com/jasvr)
+* **Paul Blake** - *Front End & Design* - [Portfolio](https://pnblake.com) - [GitHub](https://github.com/pnblake)
 
 ## License
 
