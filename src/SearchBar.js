@@ -57,6 +57,9 @@ class SearchBar extends Component {
       .then(res => res.json())
       .then(res => {
         console.log("Search result: ", res);
+        this.setState({
+          searchResults: res
+        })
       })
       .catch(err => {
         console.log("Error: ", err);
