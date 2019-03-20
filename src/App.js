@@ -6,9 +6,26 @@ import { Container } from "react-materialize";
 import "./App.css";
 import RecipeView from "./RecipeView.js";
 import RecipeFormView from "./RecipeFormView";
-import Auth from './Auth';git 
+import Auth from "./Auth";
+git;
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      password: "",
+      isLoggedIn: false
+    };
+    this.handleAuthInput = this.handleAuthInput.bind(this);
+  }
+
+  handleAuthInput(e) {
+    this.setState({
+      [e.target.username]: e.target.value
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -25,7 +42,9 @@ class App extends Component {
                 Submit a Recipe
               </Link>
               <span>&nbsp;|&nbsp;</span>
-              <Link to="/auth" className="link-box-link">Auth</Link>
+              <Link to="/auth" className="link-box-link">
+                Auth
+              </Link>
             </div>
 
             <Switch>
