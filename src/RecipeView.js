@@ -5,10 +5,7 @@ import {
   Row,
   Card,
   CardTitle,
-  Pagination,
-  SideNav,
-  Button,
-  SideNavItem
+  Pagination
 } from "react-materialize";
 import "./RecipeView.css";
 
