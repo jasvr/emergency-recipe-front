@@ -19,6 +19,7 @@ class App extends Component {
     };
     this.handleAuthInput = this.handleAuthInput.bind(this);
     this.handleSignUp = this.handleSignUp.bind(this);
+    this.handleLogIn = this.handleLogIn.bind(this);
   }
 
   handleAuthInput(e) {
@@ -31,6 +32,20 @@ class App extends Component {
     e.preventDefault();
     axios
       .post("http://localhost:3001/users/signup", {
+        username: this.state.username,
+        password: this.state.password
+      })
+      .then(response => {
+        localStorage.token = response.data.token;
+        this.setState({ isLoggedIn: true });
+      })
+      .catch(err => console.log(err));
+  }
+
+  handleLogIn(e) {
+    e.preventDefault();
+    axios
+      .post("http://localhost:3001/users/login", {
         username: this.state.username,
         password: this.state.password
       })
