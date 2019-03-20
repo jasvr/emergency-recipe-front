@@ -1,5 +1,15 @@
 import React, { Component } from "react";
-import { Col, CardPanel, Row, Card, CardTitle, Pagination, SideNav, Button, SideNavItem} from "react-materialize";
+import {
+  Col,
+  CardPanel,
+  Row,
+  Card,
+  CardTitle,
+  Pagination,
+  SideNav,
+  Button,
+  SideNavItem
+} from "react-materialize";
 import "./RecipeView.css";
 
 class RecipeView extends Component {
@@ -27,19 +37,12 @@ class RecipeView extends Component {
 
     return (
       <div>
-
-
-class="collapsible-body"
-
-
-        
         <Row>
-          <h2>Recipe Title</h2>
           <Card
             className="m"
             header={
               <CardTitle image="./temp_food_images/lasagna.jpg">
-                Image from NY Times Cooking
+                Recipe Title
               </CardTitle>
             }
             actions={[<a href="#">Image from NY Times Cooking </a>]}
@@ -84,19 +87,11 @@ class="collapsible-body"
               <Col s={12} m={7}>
                 <CardPanel className="teal lighten-4 black-text">
                   <h4> User Comments</h4>
-
-
                 </CardPanel>
               </Col>
             </Row>
           </Card>
         </Row>
-
-
-
-
-
-
         <Row>
           <Col m={1} className="grid-example">
             1
