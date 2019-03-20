@@ -22,6 +22,19 @@ class App extends Component {
     this.handleLogIn = this.handleLogIn.bind(this);
   }
 
+  componentDidMount() {
+    if (localStorage.token) {
+      this.setState({
+        isLoggedIn: true
+      });
+    } else {
+      this.setState({
+        isLoggedIn: false
+      });
+    }
+    console.log(this.state.isLoggedIn);
+  }
+
   handleAuthInput(e) {
     this.setState({
       [e.target.username]: e.target.value
