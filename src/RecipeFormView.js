@@ -26,25 +26,20 @@ class RecipeFormView extends Component {
             />
           </Row>
 
-        <Row>
+          <Row>
             <Input
               type="textarea"
               placeholder="Please seperate each step with a comma"
               s={12}
               label="Key Ingredients"
             />
-
-
-
-
-        </Row>
+          </Row>
 
           <Row>
             <Input
               type="textarea"
               placeholder="Please seperate each step with a comma"
               s={12}
-              
               label="Directions"
             />
           </Row>
