@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Col, CardPanel, Row, Card, CardTitle, Pagination} from "react-materialize";
+import {
+  Col,
+  CardPanel,
+  Row,
+  Card,
+  CardTitle,
+  Pagination
+} from "react-materialize";
 import "./RecipeView.css";
 
 class RecipeView extends Component {
@@ -38,12 +45,12 @@ class RecipeView extends Component {
             }
             actions={[<a href="#">Image from NY Times Cooking </a>]}
           >
-          <Row>
-            <Col>
-            <p className= "prep-time">Prep Time:</p> 
+            <Row>
+              <Col>
+                <p className="prep-time">Prep Time:</p>
               </Col>
-            <Col>
-            <p className="serving">Servings:</p> 
+              <Col>
+                <p className="serving">Servings:</p>
               </Col>
             </Row>
 
