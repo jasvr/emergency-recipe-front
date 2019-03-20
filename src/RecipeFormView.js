@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./RecipeFormView.css";
-import { Row, Col, Input } from "react-materialize";
+import { Row, Col, Input, Chip, Tag } from "react-materialize";
 
 class RecipeFormView extends Component {
   render() {
@@ -8,21 +8,47 @@ class RecipeFormView extends Component {
       <div>
         <h2>Share your recipies with the rest of the world!</h2>
 
+        <div className="outer-form-div" s={12}>
+          <Row>
+            <Input
+              placeholder="ex. The best lasagna ever!"
+              s={12}
+              label="Name of Recipe"
+            />
+
+            <Input placeholder="ex. 20 min" s={12} m={6} label="Prep Time" />
+            <Input placeholder="ex. 2-3" s={12} m={6} label="Servings" />
+
+            <Input
+              placeholder="www.grilledcheese.com"
+              s={12}
+              label="Link to Image"
+            />
+          </Row>
+
         <Row>
-          <Input placeholder="ex. The best lasagna ever!" s={12} label="Name of Recipe" />
-          <Input placeholder="ex. 20 min" s={6} label="Prep Time" />
-          <Input placeholder="ex. 2-3" s={6} label="Servings" />
-          <Input placeholder="www.grilledcheese.com" s={12} label="Link to Image" />
-          
+            <Input
+              type="textarea"
+              placeholder="Please seperate each step with a comma"
+              s={12}
+              label="Key Ingredients"
+            />
+
+
 
 
         </Row>
 
-        <Row>
-          <Input
-            type="textarea" placeholder="Please seperate each step with a comma" s={12} label="Directions"
-          />
-        </Row>
+          <Row>
+            <Input
+              type="textarea"
+              placeholder="Please seperate each step with a comma"
+              s={12}
+              
+              label="Directions"
+            />
+          </Row>
+        </div>
 
         <Row>
           <Col m={1} className="grid-example">

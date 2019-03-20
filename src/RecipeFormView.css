@@ -1,0 +1,17 @@
+.outer-form-div {
+    background-color: lightseagreen;
+    padding: 15px;
+    margin: 0 auto;
+    padding: 50px;
+
+}
+
+
+.input-field label {
+    color: black;
+    font-size: 2px;
+}
+
+.textarea.materialize-textarea{
+    padding:.8rem 0 1rem 0;
+}
