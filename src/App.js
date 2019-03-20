@@ -20,7 +20,13 @@ class App extends Component {
               </Link>
             </div>
 
-
+            <div className="link-box">
+              <Link to="/new-recipe" className="link-box-link">
+                Submit a Recipe
+              </Link>
+              <span>&nbsp;|&nbsp;</span>
+              <Link className="link-box-link">LogOut</Link>
+            </div>
 
             <Switch>
               <Route exact path="/" component={Home} />
