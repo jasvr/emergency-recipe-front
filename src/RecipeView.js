@@ -1,11 +1,14 @@
 import React, { Component } from "react";
+import Comments from './Comments'
 import {
   Col,
   CardPanel,
   Row,
   Card,
   CardTitle,
-  Pagination
+  Pagination,
+  Input,
+  Button
 } from "react-materialize";
 import "./RecipeView.css";
 
@@ -35,15 +38,14 @@ class RecipeView extends Component {
     return (
       <div>
         <Row>
-          <h2>Recipe Title</h2>
           <Card
             className="m"
             header={
               <CardTitle image="./temp_food_images/lasagna.jpg">
-                Image from NY Times Cooking
+                Recipe Title
               </CardTitle>
             }
-            actions={[<a href="#">Image from NY Times Cooking </a>]}
+            actions={[<a href="www.google.com">Image from NY Times Cooking </a>]}
           >
             <Row>
               <Col>
@@ -70,8 +72,16 @@ class RecipeView extends Component {
                 </CardPanel>
               </Col>
             </Row>
+            <Row>
+              {/* Comment section begins */}
+              <Comments />
+              {/* Comment Section Ends */}
+            </Row>
           </Card>
         </Row>
+
+
+        {/* Bottom Grid Below -TB Deleted */}
 
         <Row>
           <Col m={1} className="grid-example">

@@ -6,7 +6,7 @@ import { Container } from "react-materialize";
 import "./App.css";
 import RecipeView from "./RecipeView.js";
 import RecipeFormView from "./RecipeFormView";
-import Auth from './Auth';
+// import Auth from './Auth';git 
 
 class App extends Component {
   render() {
@@ -32,7 +32,7 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route path="/recipe" component={RecipeView} />
               <Route path="/new-recipe" component={RecipeFormView} />
-              <Route path="/auth" component={Auth} />
+              {/* <Route path="/auth" component={Auth} /> */}
             </Switch>
           </main>
         </Container>

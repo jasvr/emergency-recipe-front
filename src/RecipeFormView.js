@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./RecipeFormView.css";
-import { Row, Col, Input, Chip, Tag } from "react-materialize";
+import { Row, Col, Input, Button } from "react-materialize";
 
 class RecipeFormView extends Component {
   render() {
@@ -43,6 +43,13 @@ class RecipeFormView extends Component {
               label="Directions"
             />
           </Row>
+
+          <div>
+            <Button waves='light' node='a' href='http://www.google.com'> Submit </Button>
+          </div>
+
+
+
         </div>
 
         <Row>
