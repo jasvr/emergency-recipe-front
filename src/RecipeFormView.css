@@ -6,7 +6,7 @@
 
 }
 
-
+/* Name, Prep Time, Servings without clicking on line */
 .input-field label {
     color: black;
     font-size: 2px;
@@ -14,4 +14,12 @@
 
 .textarea.materialize-textarea{
     padding:.8rem 0 1rem 0;
+}
+
+.btn{
+    background-color: #FFD13B;
+    padding: 2rem 4rem;
+    line-height: 4px;
+    font-size: 24px;
+    text-align: center;
 }

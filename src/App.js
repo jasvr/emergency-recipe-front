@@ -6,7 +6,7 @@ import { Container } from "react-materialize";
 import "./App.css";
 import RecipeView from "./RecipeView.js";
 import RecipeFormView from "./RecipeFormView";
-import NewRecipeLink from './NewRecipeLink';
+import NewRecipeLink from "./NewRecipeLink";
 
 class App extends Component {
   render() {
@@ -19,7 +19,6 @@ class App extends Component {
                 <Title />
               </Link>
             </div>
-
 
 
             <Switch>
