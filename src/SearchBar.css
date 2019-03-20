@@ -1,25 +1,17 @@
-#mainSearch{
-  border-bottom: 1px solid #ffffff;
-}
-
-input[type=text] {
+#mainSearch {
   border-color: #ffffff;
   color: #ffffff;
 }
 
-input[type=text]:focus:not([readonly]) {
+#mainSearch:focus:not([readonly]) {
   border-color: #ffffff;
   box-shadow: 0 1px 0 0 #ffffff;
 }
 
-input[placeholder="What do you need to get rid of?"]{
+#mainSearch label {
   color: #ffffff;
 }
 
-.input-field label {
-  color: #ffffff;
-}
-
-input[type=text]:focus:not([readonly])+label {
+#mainSearch:focus:not([readonly])+label {
   color: #ffffff;
 }

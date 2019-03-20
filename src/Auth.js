@@ -8,8 +8,8 @@ class Auth extends Component {
       <div>
         <Row className="auth-form-container">
           <Col l={12} m={12} s={12}>
-            <Card className='login-form-box' textClassName='white-text' title='We need to check your ID.' actions={[<a href='#'>Authenticate Me</a>]}>
-              <Row>
+            <Card className='login-form-box' textClassName='white-text' title='We need to check your ID.' actions={[<a id="authenticate-link" href='#'>Authenticate Me</a>]}>
+              <Row className="auth-inputs">
                 <Input s={12} m={6} l={6} label="Email" />
                 <Input s={12} m={6} l={6} label="Password" type="password" />
               </Row>
