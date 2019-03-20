@@ -1,56 +1,34 @@
 # Emergency Recipe (Front End)
 
-One Paragraph of project description goes here
+Emergency Recipe flips recipe search on it's head – allowing users to search for recipes by the ingredients they already have in hand.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+This app is built using React.js, as a class project for the 28th instance of Web Development Immersive at General Assembly in Washington, DC.
+
+To play around with it, feel free to access it on the web at (URL TK).
+
+To tinker under the hood, feel free to fork and clone this repository.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+We've worked to keep this project fairly light on the dependency front.  However, a few packages required.
 
 ```
-Give examples
+npm install react react-dom react-materialize
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Once you've forked and cloned the repository, it's easy to get started.
 
 ```
-Give the example
+npm run start
 ```
 
-And repeat
+That should kick off a new tab in your browser connecting you to the development server.
 
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+You will need to connect it to a backend. For details on our backend, take a look at [its repository](https://github.com/pnblake/emergency-recipe-back).
 
 ## Deployment
 
@@ -60,11 +38,8 @@ TK
 
 ## Built With
 
-<!-- * [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds -->
-
-TK
+- [React](https://reactjs.org/) - JavaScript library for building user interfaces
+- [React Materialize](https://react-materialize.github.io/#/) - Material design components for react
 
 ## Contributing
 
@@ -72,13 +47,9 @@ TK
 
 TK
 
-## Versioning
-
-TK
-
 ## Authors
 
-* **Liz Davidson** - *Back End* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Liz Davidson** - *Back End & Authentication * - [PurpleBooth](https://github.com/PurpleBooth)
 * **Yoshi Maisami** - *Back End* - [PurpleBooth](https://github.com/PurpleBooth)
 * **Jasmin Vargas** - *Front* - [PurpleBooth](https://github.com/PurpleBooth)
 * **Paul Blake** - *Front End* - [Portfolio](https://pnblake.com)
@@ -91,5 +62,5 @@ TK
 
 ## Acknowledgments
 
-* H/T Tom Pawlak and his blog for his method of tokenizing strings in Javascript. [Read more here.](https://blog.abelotech.com/posts/split-string-into-tokens-javascript/)
-
+* H/T Tom Pawlak and his blog for his method of tokenizing strings in Javascript, which helped build our ingredients tags. [Read more here.](https://blog.abelotech.com/posts/split-string-into-tokens-javascript/)
+* H/T to 'Surreal Dreams' on StackOverflow for inspiring our delayed search with his JQuery-esque answer on [this thread](https://stackoverflow.com/questions/4220126/run-javascript-function-when-user-finishes-typing-instead-of-on-key-up).

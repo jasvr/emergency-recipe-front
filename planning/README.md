@@ -14,6 +14,10 @@ To retrieve data it will make API calls to the back end, which is being built by
 
 More details on the backend, including a list of models and properties, can be [found here](https://github.com/pnblake/emergency-recipe-back/tree/master/planning).
 
+## API Endpoints
+
+API endpoints provided by the backend team can be [found here](https://github.com/pnblake/emergency-recipe-back/tree/master/planning#routes).
+
 ## Wireframes
 
 #### Homepage
@@ -28,11 +32,7 @@ More details on the backend, including a list of models and properties, can be [
 #### Recipe Page - Mobile View
 ![Alt text](images/recipe_page_mobile.jpg "Recipe Page - Mobile View")
 
-#### Day 1 Group Pics
+## Miscellaneous Photos
 ![Alt text](images/team_pic_2.jpg "Recipe Page - Mobile View")
 
-## Technologies Used
-
-- [React](https://reactjs.org/) - JavaScript library for building user interfaces
-- [React Materialize](https://react-materialize.github.io/#/) - Material design components for react
 
