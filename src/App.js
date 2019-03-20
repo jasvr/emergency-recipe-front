@@ -4,6 +4,7 @@ import Title from "./Title.js";
 import { Container } from 'react-materialize';
 import "./App.css";
 import RecipeView from "./RecipeView.js";
+import RecipeFormView from "./RecipeFormView";
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
             </div>
           </main>
           <RecipeView />
+          <RecipeFormView />
         </Container>
       </div>
     );
