@@ -45,16 +45,34 @@ class SearchBar extends Component {
 
   doSearch() {
     console.log("Search called");
-    fetch(API_URL)
+    // fetch(API_URL)
+    //   .then(res => res.json())
+    //   .then(res => {
+    //     console.log("Search result: ", res);
+    //     this.setState({
+    //       searchResults: res
+    //     });
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
+
+    console.log("Stringified ingredients: ", JSON.stringify(this.state.ingredients));
+
+    fetch(API_URL, {
+      method: "POST",
+      cache: "no-cache",
+      body: JSON.stringify(this.state.ingredients),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
       .then(res => res.json())
       .then(res => {
         console.log("Search result: ", res);
-        this.setState({
-          searchResults: res
-        });
       })
       .catch(err => {
-        console.log(err);
+        console.log("Error: ", err);
       });
   }
 
