@@ -14,11 +14,11 @@ class App extends Component {
           <main>
             <div className="title">
               <Title />
-            </div>{" "}
+            </div>
             <div>
               <Home />
-            </div>{" "}
-          </main>{" "}
+            </div>
+          </main>
           <RecipeView />
           <RecipeFormView />
         </Container>
