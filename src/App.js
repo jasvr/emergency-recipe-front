@@ -7,7 +7,7 @@ import "./App.css";
 import RecipeView from "./RecipeView.js";
 import RecipeFormView from "./RecipeFormView";
 import Auth from "./Auth";
-git;
+import axios from "axios";
 
 class App extends Component {
   constructor(props) {
@@ -37,7 +37,7 @@ class App extends Component {
 
   handleAuthInput(e) {
     this.setState({
-      [e.target.username]: e.target.value
+      [e.target.name]: e.target.value
     });
   }
 
@@ -65,6 +65,7 @@ class App extends Component {
       .then(response => {
         localStorage.token = response.data.token;
         this.setState({ isLoggedIn: true });
+        this.setState({ password: "" });
       })
       .catch(err => console.log(err));
   }
