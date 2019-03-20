@@ -6,3 +6,11 @@ table.striped>tbody>tr:nth-child(odd) {
 table.striped>tbody>tr {
   color: #ffffff;
 }
+
+a {
+  color: #000000;
+}
+
+a:hover {
+  color: #3D3D3D;
+}
