@@ -6,21 +6,29 @@ import {
   Row,
   Card,
   CardTitle,
-  Pagination,
-  Input,
-  Button
+  Pagination
 } from "react-materialize";
 import "./RecipeView.css";
 
+// BEGIN DELETE SECTION
+let ingredientsArray = [
+  "chicken",
+  "onions",
+  "peppers",
+  "beans",
+  "tortilla"
+];
+// END DELETE SECTION
+
 class RecipeView extends Component {
+
+  // componentDidMount() {
+
+  // }
+
   render() {
-    let ingredientsArray = [
-      "chicken",
-      "onions",
-      "peppers",
-      "beans",
-      "tortilla"
-    ];
+
+
 
     let ingredientsList;
     ingredientsList = ingredientsArray.map((ingredient, id) => {
@@ -45,7 +53,7 @@ class RecipeView extends Component {
                 Recipe Title
               </CardTitle>
             }
-            actions={[<a href="www.google.com">Image from NY Times Cooking </a>]}
+            actions={[<a href="www.google.com">Back to Search Page </a>]}
           >
             <Row>
               <Col>
@@ -83,7 +91,7 @@ class RecipeView extends Component {
 
         {/* Bottom Grid Below -TB Deleted */}
 
-        <Row>
+        {/* <Row>
           <Col m={1} className="grid-example">
             1
           </Col>
@@ -121,7 +129,7 @@ class RecipeView extends Component {
           <Col s={1} className="grid-example">
             12
           </Col>
-        </Row>
+        </Row> */}
       </div>
     );
   }
