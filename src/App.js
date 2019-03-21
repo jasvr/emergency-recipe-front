@@ -7,7 +7,7 @@ import "./App.css";
 import RecipeView from "./RecipeView.js";
 import RecipeFormView from "./RecipeFormView";
 import Auth from './Auth';
-import UpdateFormView from "./UpdateFormView";
+import UpdateFormContainer from "./UpdateFormContainer";
 
 class App extends Component {
   render() {
@@ -33,8 +33,8 @@ class App extends Component {
 
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route path="/recipe/update/:id" component={UpdateFormView} />
-              <Route path="/recipe" component={RecipeView} />
+              <Route path="/recipe/update/:id" component={UpdateFormContainer} />
+              <Route path="/recipe/:id" component={RecipeView} />
               <Route path="/new-recipe" component={RecipeFormView} />
               <Route path="/auth" component={Auth} />
             </Switch>
