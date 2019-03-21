@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Comments from "./Comments";
-import { Col, CardPanel, Row, Card, CardTitle } from "react-materialize";
+import { Col, CardPanel, Row, Card, CardTitle, Button } from "react-materialize";
 import "./RecipeView.css";
 
 class RecipeView extends Component {
@@ -45,7 +45,12 @@ class RecipeView extends Component {
                 {selectedRecipe.title}
               </CardTitle>
             }
-            actions={[<a href="www.google.com">Back to Search Page </a>]}
+            actions={[
+              // <a href="./update">Update</a>
+              <Button waves="light" node="a" href={"/recipe/" + this.state.recipe._id + "/update"}>
+                Update this recipe
+              </Button>
+            ]}
           >
             <Row>
               <Col>
@@ -54,7 +59,9 @@ class RecipeView extends Component {
                 </p>
               </Col>
               <Col>
-                <p className="serving">Servings: {selectedRecipe.servings}</p>
+                <p className="serving">
+                  Servings: {selectedRecipe.servings}
+                </p>
               </Col>
             </Row>
 

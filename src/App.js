@@ -33,12 +33,8 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route path="/recipe" component={RecipeView} />
               <Route path="/new-recipe" component={RecipeFormView} />
-<<<<<<< HEAD
               <Route path="/auth" component={Auth} />
               <Route path="/recipe/:id/update" component={UpdateFormView} />
-=======
-              {/* <Route path="/auth" component={Auth} /> */}
->>>>>>> master
             </Switch>
           </main>
         </Container>
