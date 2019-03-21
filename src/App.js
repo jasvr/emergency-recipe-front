@@ -32,7 +32,7 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route path="/recipe" component={RecipeView} />
               <Route path="/new-recipe" component={RecipeFormView} />
-              <Route path="/auth" component={Auth} />
+              {/* <Route path="/auth" component={Auth} /> */}
             </Switch>
           </main>
         </Container>
