@@ -3,37 +3,61 @@ import "./RecipeFormView.css";
 import IngredientChips from './IngredientChips';
 import { Row, Col, Card, Input } from "react-materialize";
 
+let tokenArray = [];
+
 class RecipeFormView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      keyIngredients: [],
-      servings: "",
-      prepTime: "",
-      picture: "",
-      instructions: "",
-      isApproved: true,
-      comments: []
+      recipe: {
+        title: "",
+        keyIngredients: [],
+        servings: "",
+        prepTime: "",
+        picture: "",
+        instructions: "",
+        isApproved: true,
+        comments: []
+      },
+      tokenIngredients: []
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInputChangeForChips = this.handleInputChangeForChips.bind(this);
   }
 
   handleInputChange(e) {
-    // console.log("Input change being called.")
+    e.preventDefault();
     const target = e.target;
     const value = target.value;
     const name = target.name;
-
-
     this.setState({
-      [name]: value
+      recipe: {
+        [name]: value
+      }
     });
+    // Call setState again to overwrite keyIngredients with a tokenized version
+    if (name === "keyIngredients") {
+      let tokenizedArray = this.handleInputChangeForChips(value);
+      this.setState({
+        tokenIngredients: tokenizedArray,
+        recipe: {
+          keyIngredients: tokenizedArray
+        }
+      })
+    }
+    console.log(this.state);
+  }
+
+  handleInputChangeForChips(stringToBeTokenized){
+    let tokenArray = stringToBeTokenized.match(/\S+/g);
+    console.log("Token array: ", tokenArray);
+    return tokenArray;
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     // TK
   }
 
@@ -59,7 +83,7 @@ class RecipeFormView extends Component {
                   l={12}
                   label="Name of Recipe"
                   name="title"
-                  value={this.state.title}
+                  value={this.state.recipe.title}
                   onChange={this.handleInputChange}
                 />
 
@@ -69,7 +93,7 @@ class RecipeFormView extends Component {
                   l={6}
                   label="Prep Time"
                   name="prepTime"
-                  value={this.state.prepTime}
+                  value={this.state.recipe.prepTime}
                   onChange={this.handleInputChange}
                 />
 
@@ -79,7 +103,7 @@ class RecipeFormView extends Component {
                   l={6}
                   label="Servings"
                   name="servings"
-                  value={this.state.servings}
+                  value={this.state.recipe.servings}
                   onChange={this.handleInputChange}
                 />
               </Row>
@@ -91,7 +115,7 @@ class RecipeFormView extends Component {
                   l={12}
                   label="Image URL"
                   name="picture"
-                  value={this.state.picture}
+                  value={this.state.recipe.picture}
                   onChange={this.handleInputChange}
                 />
               </Row>
@@ -104,12 +128,12 @@ class RecipeFormView extends Component {
                   type="textarea"
                   label="Instructions"
                   name="instructions"
-                  value={this.state.instructions}
+                  value={this.state.recipe.instructions}
                   onChange={this.handleInputChange}
                 />
               </Row>
 
-              {/* <IngredientChips /> */}
+              <IngredientChips ingredients={this.state.tokenIngredients} />
 
               <Row className="recipe-form-view-inputs">
                 <Input
@@ -118,7 +142,6 @@ class RecipeFormView extends Component {
                   l={12}
                   label="Key Ingredient Tags"
                   name="keyIngredients"
-                  value={this.state.keyIngredients}
                   onChange={this.handleInputChange}
                 />
               </Row>
