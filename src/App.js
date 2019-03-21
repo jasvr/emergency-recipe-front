@@ -26,15 +26,17 @@ class App extends Component {
                 Submit a Recipe
               </Link>
               <span>&nbsp;|&nbsp;</span>
-              <Link to="/auth" className="link-box-link">Auth</Link>
+              <Link to="/auth" className="link-box-link">
+                Auth
+              </Link>
             </div>
 
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route path="/recipe/update/:id" component={UpdateFormView} />
               <Route path="/recipe" component={RecipeView} />
               <Route path="/new-recipe" component={RecipeFormView} />
               <Route path="/auth" component={Auth} />
-              <Route path="/recipe/:id/update" component={UpdateFormView} />
             </Switch>
           </main>
         </Container>

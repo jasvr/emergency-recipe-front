@@ -1,99 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import IngredientChips from "./IngredientChips";
+import './UpdateFormView.css';
 import { Row, Col, Card, Input, Button } from "react-materialize";
 
-const API_URL = "https://emergency-recipe-backend.herokuapp.com/api/recipe/new";
-
-
 class UpdateFormView extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: "",
-      keyIngredients: [],
-      servings: "",
-      prepTime: "",
-      picture: "",
-      instructions: "",
-      isApproved: true,
-      comments: []
-    }
-
-
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.tokenizeStringIntoArray = this.tokenizeStringIntoArray.bind(this);
-    this.uppercaseFirstLetterArray = this.uppercaseFirstLetterArray.bind(this);
-    
-  }
-
-  handleInputChange(e) {
-    e.preventDefault();
-    const target = e.target;
-    let value = target.value;
-    const name = target.name;
-    if (name === "keyIngredients") {
-      let tokenizedArray = this.tokenizeStringIntoArray(value);
-      tokenizedArray = this.uppercaseFirstLetterArray(tokenizedArray);
-      value = tokenizedArray;
-    }
-    this.setState({
-      [name]: value
-    });
-    console.log(this.state);
-  }
-
-  tokenizeStringIntoArray(stringToBeTokenized) {
-    let tokenArray = stringToBeTokenized.match(/\S+/g);
-    console.log("Token array: ", tokenArray);
-    return tokenArray;
-  }
-
-  uppercaseFirstLetterArray(arrayArg) {
-    let fixedArray = [];
-
-    if (arrayArg !== null) {
-      for (let i = 0; i < arrayArg.length; i++) {
-        let currentWord = arrayArg[i];
-        fixedArray.push(currentWord.charAt(0).toUpperCase() + currentWord.slice(1));
-      }
-      return fixedArray;
-    } else {
-      return arrayArg;
-    }
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    console.log("handleSubmit called", this.state);
-    fetch(API_URL, {
-      method: "POST",
-      body: JSON.stringify(this.state),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => res.json())
-      .then(res => {
-        console.log("Message from API: ", res);
-      })
-      .catch(err => {
-        console.log("Error: ", err);
-      })
-  }
-
   render() {
-    // const RECIPE_ID = { match.params.id };
-    // console.log(RECIPE_ID);
+    console.log(this.props);
 
     return (
       <div>
-        <Row className="submission-form-container">
+        <p>Updating {this.props.match.params.id}</p>
+        <Row className="update-form-container">
           <Col l={12} m={12} s={12}>
             <Card
-              className="submission-form-box"
+              className="update-form-box"
               textClassName="white-text"
-              title="Make some changes."
+              title="Share your recipe with the world!"
               actions={[
                 <Button
                   waves="light"
@@ -161,7 +83,7 @@ class UpdateFormView extends Component {
                 />
               </Row>
 
-              <IngredientChips ingredients={this.state.keyIngredients} />
+              {/* <IngredientChips ingredients={this.state.keyIngredients} /> */}
 
               <Row className="recipe-form-view-inputs">
                 <Input

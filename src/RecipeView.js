@@ -47,7 +47,7 @@ class RecipeView extends Component {
             }
             actions={[
               // <a href="./update">Update</a>
-              <Button waves="light" node="a" href={"/recipe/" + this.state.recipe._id + "/update"}>
+              <Button waves="light" node="a" href={"/recipe/update/" + this.state.recipe._id}>
                 Update this recipe
               </Button>
             ]}
