@@ -27,7 +27,10 @@ class RecipeView extends Component {
           recipe: res
         });
         console.log("got data", this.state);
-      });
+      })
+      .catch(err => {
+        console.log("Err: ", err);
+      })
   }
 
   render() {
@@ -74,11 +77,11 @@ class RecipeView extends Component {
               </Col>
             </Row>
             <Row>
-              <Comments
+              {/* <Comments
                 {...this.state}
                 {...this.props}
                 getData={this.getData}
-              />
+              /> */}
             </Row>
           </Card>
         </Row>
