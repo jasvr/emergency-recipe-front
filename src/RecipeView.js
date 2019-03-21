@@ -6,7 +6,7 @@ import {
   Row,
   Card,
   CardTitle,
-  Pagination
+  
 } from "react-materialize";
 import "./RecipeView.css";
 
@@ -78,7 +78,7 @@ class RecipeView extends Component {
               </Col>
             </Row>
             <Row>
-              <Comments />
+              <Comments comments={selectedRecipe.comments} />
             </Row>
           </Card>
         </Row>

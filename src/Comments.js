@@ -6,13 +6,17 @@ import CommentForm from './CommentForm';
 
 
 class Comments extends Component {
+    componentDidMount() {
+    }
     render() {
+        console.log("in main comments",this.props)
         return (
             <div>
                 <Col s={12} m={12}>
                     <h4>Comments</h4>
                     <CommentForm />
-                    <CommentList />
+                    <CommentList {...this.props} />
+                    
                 </Col>
             </div>
         );

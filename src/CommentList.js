@@ -1,26 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, CardPanel } from "react-materialize";
 
-// TB DELETED
-let fakeComments = [
-    {
-        name: "Jasmin",
-        content: "I love pizza!"
-    },
-    {
-        name: "Yoshi",
-        content: "I love kababs!"
-    },
-    {
-        name: "Liz",
-        content: "I love nachos!"
-    },
-    {
-        name: "Paul",
-        content: "I love yogurt!"
-    }
-]
-// END TB DELETED
 
 
 
@@ -28,33 +8,41 @@ class CommentList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            comments: undefined
+            comments: ["no comments"]
         }
     }
 
     componentDidMount() {
-        // DO API CALL HERE
-
-        // FAKE API CALL
-        this.setState({
-            comments: fakeComments
-        })
+        if (this.props.comments) {
+            this.setState({ comments: this.props.comments })
+        }
 
     }
 
     render() {
-        console.log(this.state.comments);
+        console.log('comment List:', this.props);
+
+        // if (!this.props.comments) {
+        //     const commentsElement = "no comments to show"
+        // } else {
+        const commentsElement = this.state.comments.map(comment => {
+            return <div>{comment}</div>
+        })
+
+        // }
+
 
         return (
             <div>
                 <Col s={12} m={7}>
                     <CardPanel className="teal lighten-4 black-text">
                         <h6>User Comments</h6>
+                        {commentsElement}
                     </CardPanel>
                 </Col>
 
 
-            </div>
+            </div >
         )
     }
 }
