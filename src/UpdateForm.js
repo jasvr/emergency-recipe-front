@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { Redirect } from "react-router-dom";
 import { Row, Col, Card, Input, Button } from "react-materialize";
 import IngredientChips from './IngredientChips';
 
 const API_URL = "https://emergency-recipe-backend.herokuapp.com/api/recipe/";
+let shouldRedirect = false;
 
 class UpdateForm extends Component {
   constructor(props) {
@@ -74,6 +76,10 @@ class UpdateForm extends Component {
       .then(res => res.json())
       .then(res => {
         console.log("Message from API: ", res);
+        shouldRedirect = true;
+      })
+      .then(()=>{
+        this.forceUpdate();
       })
       .catch(err => {
         console.log("Error: ", err);
@@ -81,7 +87,10 @@ class UpdateForm extends Component {
   }
 
   render() {
-    console.log("Props: ", this.props);
+    if (shouldRedirect){
+      return <Redirect to={"/recipe/" + this.props.match.params.id} />
+    }
+    
     return (
       <div>
         <Row className="update-form-container">

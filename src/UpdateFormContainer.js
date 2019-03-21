@@ -13,10 +13,6 @@ class UpdateFormView extends Component {
 
 
   componentDidMount(){
-    console.log(
-      "https://emergency-recipe-backend.herokuapp.com/api/recipe/" +
-        this.props.match.params.id
-    );
     fetch("https://emergency-recipe-backend.herokuapp.com/api/recipe/" + this.props.match.params.id)
       .then(res => res.json())
       .then(res => {
