@@ -44,26 +44,20 @@ class RecipeFormView extends Component {
               ]}
             >
               <Row className="recipe-form-view-inputs">
-                <Input
-                  s={12}
-                  label="Name of Recipe"
-                />
+                <Input s={12} m={12} l={12} label="Name of Recipe" />
 
-                <Input
-                  s={12}
-                  m={6}
-                  label="Prep Time"
-                />
+                <Input s={12} m={6} l={6} label="Prep Time" />
 
-                <Input s={12} m={6} label="Servings" />
+                <Input s={12} m={6} l={6} label="Servings" />
               </Row>
 
+              <Row className="recipe-form-view-inputs">
+                <Input s={12} m={12} l={12} label="Image URL" />
+              </Row>
 
-              {/* <Input
-                  placeholder="www.grilledcheese.com"
-                  s={12}
-                  label="Link to Image"
-                /> */}
+              <Row className="recipe-form-view-inputs">
+                <Input s={12} m={12} l={12} type="textarea" label="Instructions" />
+              </Row>
             </Card>
           </Col>
         </Row>

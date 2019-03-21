@@ -19,3 +19,16 @@
 .recipe-form-view-inputs input[type=text]:focus:not([readonly]) + label {
   color: #AC36B2;
 }
+
+.recipe-form-view-inputs textarea.materialize-textarea {
+  border-bottom: 1px solid #AC36B2;
+}
+
+.recipe-form-view-inputs textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #AC36B2;
+  box-shadow: 0 1px 0 0 #AC36B2;
+}
+
+.recipe-form-view-inputs textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #AC36B2;
+}
