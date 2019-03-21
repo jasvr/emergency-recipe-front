@@ -11,13 +11,31 @@ import "./RecipeView.css";
 
 class RecipeView extends Component {
 
+  constructor(props){
+  super(props)
+    this.state ={
+      recipe: {}
+    }
+  }
+
+
   componentDidMount(){
-    console.log(this.props)
-    
+    console.log(this.props.location.pathname)
+    let recipePath = this.props.location.pathname;
+    const API_URL = 'https://emergency-recipe-backend.herokuapp.com/api'
+    fetch(API_URL + recipePath)
+    .then(res => res.json())
+    .then(res => {
+      console.log(res)
+      this.setState({
+        recipe: res
+      })
+    })
+
   }
 
   render() {
-
+    const selectedRecipe = this.state.recipe
 
 
     return (
@@ -26,15 +44,15 @@ class RecipeView extends Component {
           <Card
             className="m"
             header={
-              <CardTitle image="./temp_food_images/lasagna.jpg">
-                Recipe Title
+              <CardTitle image={selectedRecipe.picture}>
+                {selectedRecipe.title}
               </CardTitle>
             }
             actions={[<a href="#">Image from NY Times Cooking </a>]}
           >
             <Row>
               <Col>
-                <p className="prep-time">Prep Time:</p>
+                <p className="prep-time"></p>
               </Col>
               <Col>
                 <p className="serving">Servings:</p>
