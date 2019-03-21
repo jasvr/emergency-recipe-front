@@ -3,35 +3,27 @@ import { Col } from "react-materialize";
 import "./RecipeView.css";
 import CommentList from "./CommentList";
 import CommentForm from "./CommentForm";
+import axios from "axios";
 
 class Comments extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      recipe: { comments: ["placeholder"] }
+      name: "Placeholder",
+      content: ""
     };
-    this.handleUpdateRecipe = this.handleUpdateRecipe.bind(this);
+
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  componentDidMount() {
-    let recipePath = this.props.location.pathname;
-    const API_URL = "https://emergency-recipe-backend.herokuapp.com/api";
-    fetch(API_URL + recipePath)
-      .then(res => res.json())
-      .then(res => {
-        this.setState({
-          recipe: res
-        });
-        console.log("got comment data", this.state);
-      });
-    // this.setState({ comments: this.props.recipe.comments });
-  }
-
-  handleUpdateRecipe(value) {
-    this.setState({
-      recipe: {
-        comments: value
-      }
+  onSubmit(event) {
+    event.preventDefault();
+    let commentPath = this.props.location.pathname;
+    const API_URL =
+      "https://emergency-recipe-backend.herokuapp.com/api/comment";
+    axios.post(API_URL + commentPath, this.state).then(res => {
+      console.log("response", res);
+      // this.props.history.push(this.props.location.pathname)
     });
   }
 
@@ -45,8 +37,9 @@ class Comments extends Component {
             {...this.state}
             {...this.props}
             handleUpdateRecipe={this.handleUpdateRecipe}
+            onSubmit={this.onSubmit}
           />
-          <CommentList {...this.state} />
+          <CommentList {...this.state} {...this.props} />
         </Col>
       </div>
     );

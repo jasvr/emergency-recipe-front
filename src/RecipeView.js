@@ -27,6 +27,9 @@ class RecipeView extends Component {
           recipe: res
         });
         console.log("got data", this.state);
+      })
+      .catch(err => {
+        console.log(err);
       });
   }
 

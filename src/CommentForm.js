@@ -10,7 +10,6 @@ class CommentForm extends Component {
       content: ""
     };
 
-    this.onSubmit = this.onSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
@@ -20,20 +19,7 @@ class CommentForm extends Component {
     });
   }
 
-  onSubmit(event) {
-    event.preventDefault();
-    let commentPath = this.props.location.pathname;
-    const API_URL =
-      "https://emergency-recipe-backend.herokuapp.com/api/comment";
-    axios.post(API_URL + commentPath, this.state).then(res => {
-      console.log("response", res);
-      this.props.handleUpdateRecipe(res.data);
-      // this.props.history.push(this.props.location.pathname)
-    });
-  }
-
   render() {
-    console.log(this.props);
     return (
       <div>
         <Col s={12} m={5}>
