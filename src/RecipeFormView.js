@@ -3,7 +3,7 @@ import "./RecipeFormView.css";
 import IngredientChips from './IngredientChips';
 import { Row, Col, Card, Input, Button } from "react-materialize";
 
-const API_URL = "https://emergency-recipe-backend.herokuapp.com/api/recipe";
+const API_URL = "https://emergency-recipe-backend.herokuapp.com/api/recipe/new";
 
 class RecipeFormView extends Component {
   constructor(props) {
@@ -48,26 +48,6 @@ class RecipeFormView extends Component {
     return tokenArray;
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    console.log("handleSubmit called", this.state);
-    fetch(API_URL, { 
-      method: "POST",
-      cache: "no-cache",
-      body: JSON.stringify(this.state.recipe),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-    .then(res => res.json())
-    .then(res => {
-      console.log("Message from API: ", res);
-    })
-    .catch(err => {
-      console.log("Error: ", err);
-    })
-  }
-
   uppercaseFirstLetterArray(arrayArg) {
     let fixedArray = [];
 
@@ -80,6 +60,25 @@ class RecipeFormView extends Component {
     } else {
       return arrayArg;
     }
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log("handleSubmit called", this.state);
+    fetch(API_URL, { 
+      method: "POST",
+      body: JSON.stringify(this.state),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(res => res.json())
+    .then(res => {
+      console.log("Message from API: ", res);
+    })
+    .catch(err => {
+      console.log("Error: ", err);
+    })
   }
 
   render() {
@@ -173,35 +172,6 @@ class RecipeFormView extends Component {
             </Card>
           </Col>
         </Row>
-
-        {/* <div className="outer-form-div" s={12}>
-          
-
-          <Row>
-            <Input
-              type="textarea"
-              placeholder="Please seperate each step with a comma"
-              s={12}
-              label="Key Ingredients"
-            />
-          </Row>
-
-          <Row>
-            <Input
-              type="textarea"
-              placeholder="Please seperate each step with a comma"
-              s={12}
-              label="Directions"
-            />
-          </Row>
-
-          <div>
-            <Button waves="light" node="a" href="http://www.google.com">
-              {" "}
-              Submit{" "}
-            </Button>
-          </div>
-        </div> */}
       </div>
     );
   }
