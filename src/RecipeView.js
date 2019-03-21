@@ -52,17 +52,18 @@ class RecipeView extends Component {
           >
             <Row>
               <Col>
-                <p className="prep-time"></p>
+                <p className="prep-time">Prep Time: {selectedRecipe.prepTime}</p>
               </Col>
               <Col>
-                <p className="serving">Servings:</p>
+                <p className="serving">Servings: {selectedRecipe.servings}</p>
               </Col>
             </Row>
 
             <Row>
+            {/* come back and map  */}
               <Col s={12} m={4}>
                 <CardPanel className="teal lighten-4 black-text">
-                  <h4>Ingredients</h4>
+                  <h4>Key Ingredients:{selectedRecipe.keyIngredients}</h4>
                   <ul className="ingredients-list">ingredientsList</ul>
                 </CardPanel>
               </Col>
@@ -70,8 +71,7 @@ class RecipeView extends Component {
               <Col s={12} m={8}>
                 <CardPanel className="teal lighten-4 black-text">
                   <h4> Directions</h4>
-                  <ol className="direction-list">directions</ol>
-                  <Pagination items={10} activePage={2} maxButtons={8} />
+                  <ol className="direction-list">{selectedRecipe.instructions}</ol>
                 </CardPanel>
               </Col>
             </Row>
@@ -84,6 +84,7 @@ class RecipeView extends Component {
               <Col s={12} m={5}>
                 <CardPanel className="teal lighten-4 black-text">
                   <h4> Add a New Comment</h4>
+  
                 </CardPanel>
               </Col>
 
