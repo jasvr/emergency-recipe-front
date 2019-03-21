@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 import "./RecipeFormView.css";
+import IngredientChips from './IngredientChips';
 import { Row, Col, Card, Input } from "react-materialize";
 
 class RecipeFormView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: undefined,
+      title: "",
       keyIngredients: [],
-      servings: undefined,
-      prepTime: undefined,
-      picture: undefined,
-      instructions: undefined,
+      servings: "",
+      prepTime: "",
+      picture: "",
+      instructions: "",
       isApproved: true,
       comments: []
     };
@@ -21,7 +22,15 @@ class RecipeFormView extends Component {
   }
 
   handleInputChange(e) {
-    // TK
+    // console.log("Input change being called.")
+    const target = e.target;
+    const value = target.value;
+    const name = target.name;
+
+
+    this.setState({
+      [name]: value
+    });
   }
 
   handleSubmit(e) {
@@ -39,24 +48,79 @@ class RecipeFormView extends Component {
               title="Share your recipe with the world!"
               actions={[
                 <a id="authenticate-link" href="/">
-                  Authenticate Me
+                  Add Your Recipe
                 </a>
               ]}
             >
               <Row className="recipe-form-view-inputs">
-                <Input s={12} m={12} l={12} label="Name of Recipe" />
+                <Input
+                  s={12}
+                  m={12}
+                  l={12}
+                  label="Name of Recipe"
+                  name="title"
+                  value={this.state.title}
+                  onChange={this.handleInputChange}
+                />
 
-                <Input s={12} m={6} l={6} label="Prep Time" />
+                <Input
+                  s={12}
+                  m={6}
+                  l={6}
+                  label="Prep Time"
+                  name="prepTime"
+                  value={this.state.prepTime}
+                  onChange={this.handleInputChange}
+                />
 
-                <Input s={12} m={6} l={6} label="Servings" />
+                <Input
+                  s={12}
+                  m={6}
+                  l={6}
+                  label="Servings"
+                  name="servings"
+                  value={this.state.servings}
+                  onChange={this.handleInputChange}
+                />
               </Row>
 
               <Row className="recipe-form-view-inputs">
-                <Input s={12} m={12} l={12} label="Image URL" />
+                <Input
+                  s={12}
+                  m={12}
+                  l={12}
+                  label="Image URL"
+                  name="picture"
+                  value={this.state.picture}
+                  onChange={this.handleInputChange}
+                />
               </Row>
 
               <Row className="recipe-form-view-inputs">
-                <Input s={12} m={12} l={12} type="textarea" label="Instructions" />
+                <Input
+                  s={12}
+                  m={12}
+                  l={12}
+                  type="textarea"
+                  label="Instructions"
+                  name="instructions"
+                  value={this.state.instructions}
+                  onChange={this.handleInputChange}
+                />
+              </Row>
+
+              {/* <IngredientChips /> */}
+
+              <Row className="recipe-form-view-inputs">
+                <Input
+                  s={12}
+                  m={12}
+                  l={12}
+                  label="Key Ingredient Tags"
+                  name="keyIngredients"
+                  value={this.state.keyIngredients}
+                  onChange={this.handleInputChange}
+                />
               </Row>
             </Card>
           </Col>
