@@ -15,6 +15,9 @@ class RecipeFormView extends Component {
       isApproved: true,
       comments: []
     };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInputChange(e) {
@@ -40,27 +43,27 @@ class RecipeFormView extends Component {
                 </a>
               ]}
             >
-              <Row>
+              <Row className="recipe-form-view-inputs">
                 <Input
-                  placeholder="ex. The best lasagna ever!"
                   s={12}
                   label="Name of Recipe"
                 />
 
                 <Input
-                  placeholder="ex. 20 min"
                   s={12}
                   m={6}
                   label="Prep Time"
                 />
-                <Input placeholder="ex. 2-3" s={12} m={6} label="Servings" />
 
-                <Input
+                <Input s={12} m={6} label="Servings" />
+              </Row>
+
+
+              {/* <Input
                   placeholder="www.grilledcheese.com"
                   s={12}
                   label="Link to Image"
-                />
-              </Row>
+                /> */}
             </Card>
           </Col>
         </Row>
