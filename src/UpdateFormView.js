@@ -83,8 +83,8 @@ class UpdateFormView extends Component {
   }
 
   render() {
-    const RECIPE_ID = { match.params.id };
-    console.log(RECIPE_ID);
+    // const RECIPE_ID = { match.params.id };
+    // console.log(RECIPE_ID);
 
     return (
       <div>
