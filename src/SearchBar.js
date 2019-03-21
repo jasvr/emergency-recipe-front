@@ -43,13 +43,31 @@ class SearchBar extends Component {
     clearTimeout(searchDelay);
   }
 
+  uppercaseFirstLetterArray(arrayArg){
+    // console.log("uppercaseFirstLetterArray called.");
+    let fixedArray = [];
+
+    if(arrayArg !== null){
+      for (let i = 0; i < arrayArg.length; i++) {
+        let currentWord = arrayArg[i];
+        fixedArray.push(currentWord.charAt(0).toUpperCase() + currentWord.slice(1));
+        // console.log(fixedArray);
+      }
+      return fixedArray;
+    } else {
+      return arrayArg;
+    }
+  }
+
   doSearch() {
     console.log("Search called.");
+
+    let searchArray = this.uppercaseFirstLetterArray(this.state.ingredients);
 
     fetch(API_URL, {
       method: "POST",
       cache: "no-cache",
-      body: JSON.stringify(this.state.ingredients),
+      body: JSON.stringify(searchArray),
       headers: {
         "Content-Type": "application/json"
       }
