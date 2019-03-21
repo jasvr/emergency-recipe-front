@@ -10,27 +10,15 @@ import {
 import "./RecipeView.css";
 
 class RecipeView extends Component {
+
+  componentDidMount(){
+    console.log(this.props)
+    
+  }
+
   render() {
-    let ingredientsArray = [
-      "chicken",
-      "onions",
-      "peppers",
-      "beans",
-      "tortilla"
-    ];
 
-    let ingredientsList;
-    ingredientsList = ingredientsArray.map((ingredient, id) => {
-      return <li>{ingredient}</li>;
-    });
 
-    let directionsArray = ["Step 1", "Step 2", "Step 3", "Step 4", "Step 5"];
-
-    let directionsList;
-
-    directionsList = directionsArray.map((direction, id) => {
-      return <li>{direction}</li>;
-    });
 
     return (
       <div>
@@ -57,14 +45,14 @@ class RecipeView extends Component {
               <Col s={12} m={4}>
                 <CardPanel className="teal lighten-4 black-text">
                   <h4>Ingredients</h4>
-                  <ul className="ingredients-list">{ingredientsList}</ul>
+                  <ul className="ingredients-list">ingredientsList</ul>
                 </CardPanel>
               </Col>
 
               <Col s={12} m={8}>
                 <CardPanel className="teal lighten-4 black-text">
                   <h4> Directions</h4>
-                  <ol className="direction-list">{directionsList}</ol>
+                  <ol className="direction-list">directions</ol>
                   <Pagination items={10} activePage={2} maxButtons={8} />
                 </CardPanel>
               </Col>
