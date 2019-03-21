@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col, Card, Input, Button } from "react-materialize";
 import IngredientChips from './IngredientChips';
 
-const API_URL = "https://emergency-recipe-backend.herokuapp.com/api/recipe/new";
+const API_URL = "https://emergency-recipe-backend.herokuapp.com/api/recipe/";
 
 class UpdateForm extends Component {
   constructor(props) {
@@ -63,9 +63,9 @@ class UpdateForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log("handleSubmit called", this.state);
-    fetch(API_URL, {
-      method: "POST",
+    console.log("handleSubmit called on UpdateForm ", this.state);
+    fetch((API_URL + this.props.match.params.id), {
+      method: "PUT",
       body: JSON.stringify(this.state),
       headers: {
         "Content-Type": "application/json"
