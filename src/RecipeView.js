@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Comments from "./Comments";
-import { Col, CardPanel, Row, Card, CardTitle, Button } from "react-materialize";
 import "./RecipeView.css";
+import { Col, CardPanel, Row, Card, CardTitle, Button } from "react-materialize";
+
+let ingredientListItems = [];
 
 class RecipeView extends Component {
   constructor(props) {
@@ -37,66 +39,73 @@ class RecipeView extends Component {
 
   render() {
     const selectedRecipe = this.state.recipe;
+
+
     return (
       <div>
-        <Row>
-          <Card
-            className="m"
-            header={
-              <CardTitle image={selectedRecipe.picture}>
-                {selectedRecipe.title}
-              </CardTitle>
-            }
-            actions={[
-              // <a href="./update">Update</a>
-              // <Button waves="light" node="a" href={"/recipe/update/" + this.state.recipe._id}>
-              //   Update this recipe
-              // </Button>
-              <Link to={"/recipe/update/" + this.state.recipe._id}>
-                Update this Recipe
-              </Link>
-            ]}
-          >
-            <Row>
-              <Col>
-                <p className="prep-time">
-                  Prep Time: {selectedRecipe.prepTime}
-                </p>
-              </Col>
-              <Col>
-                <p className="serving">
-                  Servings: {selectedRecipe.servings}
-                </p>
-              </Col>
-            </Row>
+        <Card
+          className="recipe-view-card"
+          id="recipe-view"
+          header={
+            <CardTitle image={selectedRecipe.picture}>
+              {selectedRecipe.title}
+            </CardTitle>
+          }
+          actions={[
+            // <a href="./update">Update</a>
+            // <Button waves="light" node="a" href={"/recipe/update/" + this.state.recipe._id}>
+            //   Update this recipe
+            // </Button>
+            <Link to={"/recipe/update/" + this.state.recipe._id}>
+              Update this Recipe
+            </Link>
+          ]}
+        >
+          <Row>
+            <Col s={12} m={5} offset="l1 m1">
+              <CardPanel className="recipe-box">
+                <span>
+                  <b>Prep Time:</b> {selectedRecipe.prepTime}
+                </span>
+              </CardPanel>
+            </Col>
+            <Col s={12} m={5}>
+              <CardPanel className="recipe-box">
+                <span>
+                  <b>Servings:</b> {selectedRecipe.servings}
+                </span>
+              </CardPanel>
+            </Col>
+          </Row>
 
-            <Row>
-              {/* come back and map  */}
-              <Col s={12} m={4}>
-                <CardPanel className="teal lighten-4 black-text">
-                  <h4>Key Ingredients:{selectedRecipe.keyIngredients}</h4>
-                  <ul className="ingredients-list">ingredientsList</ul>
-                </CardPanel>
-              </Col>
+          <Row>
+            {/* come back and map  */}
+            <Col s={12} m={4}>
+              <CardPanel className="recipe-box">
+                <h5>Key Ingredients:</h5>
+                {
+                  selectedRecipe.keyIngredients !== undefined ? selectedRecipe.keyIngredients.map((ingredient, id) => {return <p className="ingredient-item">{ingredient}</p>}) : <p>Loading...</p>
+                }
+              </CardPanel>
+            </Col>
 
-              <Col s={12} m={8}>
-                <CardPanel className="teal lighten-4 black-text">
-                  <h4> Directions</h4>
-                  <ol className="direction-list">
-                    {selectedRecipe.instructions}
-                  </ol>
-                </CardPanel>
-              </Col>
-            </Row>
-            <Row>
-              <Comments
-                {...this.state}
-                {...this.props}
-                getData={this.getData}
-              />
-            </Row>
-          </Card>
-        </Row>
+            <Col s={12} m={8}>
+              <CardPanel className="recipe-box">
+                <h5>Directions</h5>
+                <p className="direction-text">
+                  {selectedRecipe.instructions}
+                </p>
+              </CardPanel>
+            </Col>
+          </Row>
+          <Row>
+            <Comments
+              {...this.state}
+              {...this.props}
+              getData={this.getData}
+            />
+          </Row>
+        </Card>
       </div>
     );
   }
