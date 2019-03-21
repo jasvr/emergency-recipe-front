@@ -10,38 +10,29 @@ import {
 } from "react-materialize";
 import "./RecipeView.css";
 
-// BEGIN DELETE SECTION
-let ingredientsArray = [
-  "chicken",
-  "onions",
-  "peppers",
-  "beans",
-  "tortilla"
-];
-// END DELETE SECTION
 
 class RecipeView extends Component {
 
-  constructor(props){
-  super(props)
-    this.state ={
+  constructor(props) {
+    super(props)
+    this.state = {
       recipe: {}
     }
   }
 
 
-  componentDidMount(){
+  componentDidMount() {
     console.log(this.props.location.pathname)
     let recipePath = this.props.location.pathname;
     const API_URL = 'https://emergency-recipe-backend.herokuapp.com/api'
     fetch(API_URL + recipePath)
-    .then(res => res.json())
-    .then(res => {
-      console.log(res)
-      this.setState({
-        recipe: res
+      .then(res => res.json())
+      .then(res => {
+        console.log(res)
+        this.setState({
+          recipe: res
+        })
       })
-    })
 
   }
 
@@ -71,7 +62,7 @@ class RecipeView extends Component {
             </Row>
 
             <Row>
-            {/* come back and map  */}
+              {/* come back and map  */}
               <Col s={12} m={4}>
                 <CardPanel className="teal lighten-4 black-text">
                   <h4>Key Ingredients:{selectedRecipe.keyIngredients}</h4>
@@ -87,23 +78,7 @@ class RecipeView extends Component {
               </Col>
             </Row>
             <Row>
-              <Col s={12} m={12}>
-                <h4> Comments</h4>
-              </Col>
-            </Row>
-            <Row>
-              <Col s={12} m={5}>
-                <CardPanel className="teal lighten-4 black-text">
-                  <h4> Add a New Comment</h4>
-  
-                </CardPanel>
-              </Col>
-
-              <Col s={12} m={7}>
-                <CardPanel className="teal lighten-4 black-text">
-                  <h4> User Comments</h4>
-                </CardPanel>
-              </Col>
+              <Comments />
             </Row>
           </Card>
         </Row>
