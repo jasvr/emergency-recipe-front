@@ -3,23 +3,8 @@ import { Col, Input, Button, Row, CardPanel } from "react-materialize";
 import axios from "axios";
 
 class CommentForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "placeholder",
-      content: ""
-    };
-
-    this.handleInputChange = this.handleInputChange.bind(this);
-  }
-
-  handleInputChange(event) {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  }
-
   render() {
+    console.log(this.props);
     return (
       <div>
         <Col s={12} m={5}>
@@ -34,11 +19,11 @@ class CommentForm extends Component {
                   s={12}
                   placeholder="Your comment"
                   type="textarea"
-                  onChange={this.handleInputChange}
+                  onChange={this.props.onInputChange}
                 />
                 <div>
                   <Button
-                    onClick={this.onSubmit}
+                    onClick={this.props.onSubmit}
                     waves="light"
                     node="a"
                     href="http://www.google.com"

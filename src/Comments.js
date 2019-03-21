@@ -14,6 +14,14 @@ class Comments extends Component {
     };
 
     this.onSubmit = this.onSubmit.bind(this);
+    this.onInputChange = this.onInputChange.bind(this);
+  }
+
+  onInputChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+    console.log(this.state.content);
   }
 
   onSubmit(event) {
@@ -23,12 +31,11 @@ class Comments extends Component {
       "https://emergency-recipe-backend.herokuapp.com/api/comment";
     axios.post(API_URL + commentPath, this.state).then(res => {
       console.log("response", res);
-      // this.props.history.push(this.props.location.pathname)
+      this.props.getData();
     });
   }
 
   render() {
-    // console.log("comments state", this.state);
     return (
       <div>
         <Col s={12} m={12}>
@@ -38,6 +45,7 @@ class Comments extends Component {
             {...this.props}
             handleUpdateRecipe={this.handleUpdateRecipe}
             onSubmit={this.onSubmit}
+            onInputChange={this.onInputChange}
           />
           <CommentList {...this.state} {...this.props} />
         </Col>
