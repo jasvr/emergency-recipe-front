@@ -1,56 +1,48 @@
 import React, { Component } from "react";
 import "./RecipeFormView.css";
 import IngredientChips from './IngredientChips';
-import { Row, Col, Card, Input } from "react-materialize";
+import { Row, Col, Card, Input, Button } from "react-materialize";
 
-let tokenArray = [];
+const API_URL = "https://emergency-recipe-backend.herokuapp.com/api/recipe";
 
 class RecipeFormView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      recipe: {
-        title: "",
-        keyIngredients: [],
-        servings: "",
-        prepTime: "",
-        picture: "",
-        instructions: "",
-        isApproved: true,
-        comments: []
-      },
-      tokenIngredients: []
-    };
+      title: "",
+      keyIngredients: [],
+      servings: "",
+      prepTime: "",
+      picture: "",
+      instructions: "",
+      isApproved: true,
+      comments: []
+    }
+    
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleInputChangeForChips = this.handleInputChangeForChips.bind(this);
+    this.tokenizeStringIntoArray = this.tokenizeStringIntoArray.bind(this);
+    this.uppercaseFirstLetterArray = this.uppercaseFirstLetterArray.bind(this);
   }
 
   handleInputChange(e) {
     e.preventDefault();
     const target = e.target;
-    const value = target.value;
+    let value = target.value;
     const name = target.name;
-    this.setState({
-      recipe: {
-        [name]: value
-      }
-    });
-    // Call setState again to overwrite keyIngredients with a tokenized version
     if (name === "keyIngredients") {
-      let tokenizedArray = this.handleInputChangeForChips(value);
-      this.setState({
-        tokenIngredients: tokenizedArray,
-        recipe: {
-          keyIngredients: tokenizedArray
-        }
-      })
+      let tokenizedArray = this.tokenizeStringIntoArray(value);
+      tokenizedArray = this.uppercaseFirstLetterArray(tokenizedArray);
+      value = tokenizedArray;
     }
+    this.setState({
+      [name]: value
+    });
     console.log(this.state);
   }
 
-  handleInputChangeForChips(stringToBeTokenized){
+  tokenizeStringIntoArray(stringToBeTokenized){
     let tokenArray = stringToBeTokenized.match(/\S+/g);
     console.log("Token array: ", tokenArray);
     return tokenArray;
@@ -58,22 +50,55 @@ class RecipeFormView extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // TK
+    console.log("handleSubmit called", this.state);
+    fetch(API_URL, { 
+      method: "POST",
+      cache: "no-cache",
+      body: JSON.stringify(this.state.recipe),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(res => res.json())
+    .then(res => {
+      console.log("Message from API: ", res);
+    })
+    .catch(err => {
+      console.log("Error: ", err);
+    })
+  }
+
+  uppercaseFirstLetterArray(arrayArg) {
+    let fixedArray = [];
+
+    if (arrayArg !== null) {
+      for (let i = 0; i < arrayArg.length; i++) {
+        let currentWord = arrayArg[i];
+        fixedArray.push(currentWord.charAt(0).toUpperCase() + currentWord.slice(1));
+      }
+      return fixedArray;
+    } else {
+      return arrayArg;
+    }
   }
 
   render() {
     return (
       <div>
-        <Row className="auth-form-container">
+        <Row className="submission-form-container">
           <Col l={12} m={12} s={12}>
             <Card
-              className="login-form-box"
+              className="submission-form-box"
               textClassName="white-text"
               title="Share your recipe with the world!"
               actions={[
-                <a id="authenticate-link" href="/">
-                  Add Your Recipe
-                </a>
+                <Button
+                  waves="light"
+                  className="pink"
+                  onClick={this.handleSubmit}
+                >
+                  Submit
+                </Button>
               ]}
             >
               <Row className="recipe-form-view-inputs">
@@ -83,7 +108,7 @@ class RecipeFormView extends Component {
                   l={12}
                   label="Name of Recipe"
                   name="title"
-                  value={this.state.recipe.title}
+                  // value={this.state.recipe.title}
                   onChange={this.handleInputChange}
                 />
 
@@ -93,7 +118,7 @@ class RecipeFormView extends Component {
                   l={6}
                   label="Prep Time"
                   name="prepTime"
-                  value={this.state.recipe.prepTime}
+                  // value={this.state.recipe.prepTime}
                   onChange={this.handleInputChange}
                 />
 
@@ -103,7 +128,7 @@ class RecipeFormView extends Component {
                   l={6}
                   label="Servings"
                   name="servings"
-                  value={this.state.recipe.servings}
+                  // value={this.state.recipe.servings}
                   onChange={this.handleInputChange}
                 />
               </Row>
@@ -115,7 +140,7 @@ class RecipeFormView extends Component {
                   l={12}
                   label="Image URL"
                   name="picture"
-                  value={this.state.recipe.picture}
+                  // value={this.state.recipe.picture}
                   onChange={this.handleInputChange}
                 />
               </Row>
@@ -128,12 +153,12 @@ class RecipeFormView extends Component {
                   type="textarea"
                   label="Instructions"
                   name="instructions"
-                  value={this.state.recipe.instructions}
+                  // value={this.state.recipe.instructions}
                   onChange={this.handleInputChange}
                 />
               </Row>
 
-              <IngredientChips ingredients={this.state.tokenIngredients} />
+              <IngredientChips ingredients={this.state.keyIngredients} />
 
               <Row className="recipe-form-view-inputs">
                 <Input
