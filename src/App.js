@@ -6,7 +6,7 @@ import { Container } from "react-materialize";
 import "./App.css";
 import RecipeView from "./RecipeView.js";
 import RecipeFormView from "./RecipeFormView";
-// import Auth from './Auth';git 
+import Auth from './Auth';
 
 class App extends Component {
   render() {

@@ -22,26 +22,32 @@ let ingredientsArray = [
 
 class RecipeView extends Component {
 
-  // componentDidMount() {
+  constructor(props){
+  super(props)
+    this.state ={
+      recipe: {}
+    }
+  }
 
-  // }
+
+  componentDidMount(){
+    console.log(this.props.location.pathname)
+    let recipePath = this.props.location.pathname;
+    const API_URL = 'https://emergency-recipe-backend.herokuapp.com/api'
+    fetch(API_URL + recipePath)
+    .then(res => res.json())
+    .then(res => {
+      console.log(res)
+      this.setState({
+        recipe: res
+      })
+    })
+
+  }
 
   render() {
+    const selectedRecipe = this.state.recipe
 
-
-
-    let ingredientsList;
-    ingredientsList = ingredientsArray.map((ingredient, id) => {
-      return <li>{ingredient}</li>;
-    });
-
-    let directionsArray = ["Step 1", "Step 2", "Step 3", "Step 4", "Step 5"];
-
-    let directionsList;
-
-    directionsList = directionsArray.map((direction, id) => {
-      return <li>{direction}</li>;
-    });
 
     return (
       <div>
@@ -49,87 +55,60 @@ class RecipeView extends Component {
           <Card
             className="m"
             header={
-              <CardTitle image="./temp_food_images/lasagna.jpg">
-                Recipe Title
+              <CardTitle image={selectedRecipe.picture}>
+                {selectedRecipe.title}
               </CardTitle>
             }
             actions={[<a href="www.google.com">Back to Search Page </a>]}
           >
             <Row>
               <Col>
-                <p className="prep-time">Prep Time:</p>
+                <p className="prep-time">Prep Time: {selectedRecipe.prepTime}</p>
               </Col>
               <Col>
-                <p className="serving">Servings:</p>
+                <p className="serving">Servings: {selectedRecipe.servings}</p>
               </Col>
             </Row>
 
             <Row>
+            {/* come back and map  */}
               <Col s={12} m={4}>
                 <CardPanel className="teal lighten-4 black-text">
-                  <h4>Ingredients</h4>
-                  <ul className="ingredients-list">{ingredientsList}</ul>
+                  <h4>Key Ingredients:{selectedRecipe.keyIngredients}</h4>
+                  <ul className="ingredients-list">ingredientsList</ul>
                 </CardPanel>
               </Col>
 
               <Col s={12} m={8}>
                 <CardPanel className="teal lighten-4 black-text">
                   <h4> Directions</h4>
-                  <ol className="direction-list">{directionsList}</ol>
-                  <Pagination items={10} activePage={2} maxButtons={8} />
+                  <ol className="direction-list">{selectedRecipe.instructions}</ol>
                 </CardPanel>
               </Col>
             </Row>
             <Row>
-              {/* Comment section begins */}
-              <Comments />
-              {/* Comment Section Ends */}
+              <Col s={12} m={12}>
+                <h4> Comments</h4>
+              </Col>
+            </Row>
+            <Row>
+              <Col s={12} m={5}>
+                <CardPanel className="teal lighten-4 black-text">
+                  <h4> Add a New Comment</h4>
+  
+                </CardPanel>
+              </Col>
+
+              <Col s={12} m={7}>
+                <CardPanel className="teal lighten-4 black-text">
+                  <h4> User Comments</h4>
+                </CardPanel>
+              </Col>
             </Row>
           </Card>
         </Row>
 
 
-        {/* Bottom Grid Below -TB Deleted */}
-
-        {/* <Row>
-          <Col m={1} className="grid-example">
-            1
-          </Col>
-
-          <Col m={1} className="grid-example">
-            2
-          </Col>
-          <Col m={1} className="grid-example">
-            3
-          </Col>
-          <Col s={1} className="grid-example">
-            4
-          </Col>
-          <Col s={1} className="grid-example">
-            5
-          </Col>
-          <Col s={1} className="grid-example">
-            6
-          </Col>
-          <Col s={1} className="grid-example">
-            7
-          </Col>
-          <Col s={1} className="grid-example">
-            8
-          </Col>
-          <Col s={1} className="grid-example">
-            9
-          </Col>
-          <Col s={1} className="grid-example">
-            10
-          </Col>
-          <Col s={1} className="grid-example">
-            11
-          </Col>
-          <Col s={1} className="grid-example">
-            12
-          </Col>
-        </Row> */}
       </div>
     );
   }
