@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col, CardPanel, Icon, Button } from "react-materialize";
+import './CommentList.css'
 
 class CommentList extends Component {
   constructor() {
@@ -19,22 +20,23 @@ class CommentList extends Component {
       <div>
         <Col s={12} m={7}>
           <CardPanel className="teal lighten-4 black-text">
-            <h6>User Comments</h6>
-            {comments ? (
-              comments.map(comment => {
-                console.log(comment)
-                return (<div key={comment._id} >{comment.content};
+            <h4>User Comments</h4>
+            <div className='commentContainer'>
+              {comments ? (
+                comments.map(comment => {
+                  console.log(comment)
+                  return (<div className='eachCommDiv' key={comment._id} >{comment.content};
                   <Button onClick={this.props.onDeleteComment} value={comment._id} >
 
-                    <i className="material-icons" value={comment._id}> delete</i>
-                  </Button>
+                      <i className="material-icons" value={comment._id}> delete</i>
+                    </Button>
 
-                  <button ></button>
-                </div>)
-              })
-            ) : (
-                <div>Loading</div>
-              )}
+                  </div>)
+                })
+              ) : (
+                  <div>Loading</div>
+                )}
+            </div>
           </CardPanel>
         </Col>
       </div>
