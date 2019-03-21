@@ -14,7 +14,7 @@ class Comments extends Component {
             <div>
                 <Col s={12} m={12}>
                     <h4>Comments</h4>
-                    <CommentForm />
+                    <CommentForm {...this.props}/>
                     <CommentList {...this.props} />
                     
                 </Col>

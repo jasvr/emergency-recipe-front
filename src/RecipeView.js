@@ -6,7 +6,7 @@ import {
   Row,
   Card,
   CardTitle,
-  
+
 } from "react-materialize";
 import "./RecipeView.css";
 
@@ -18,8 +18,13 @@ class RecipeView extends Component {
     this.state = {
       recipe: {}
     }
+    this.handleUpdateRecipe = this.handleUpdateRecipe.bind(this)
   }
-
+  handleUpdateRecipe(value){
+    this.setState({
+      recipe: value
+    })
+  }
 
   componentDidMount() {
     console.log(this.props.location.pathname)
@@ -78,7 +83,7 @@ class RecipeView extends Component {
               </Col>
             </Row>
             <Row>
-              <Comments comments={selectedRecipe.comments} />
+              <Comments comments={selectedRecipe.comments} {...this.props} handleUpdateRecipe={this.handleUpdateRecipe}/>
             </Row>
           </Card>
         </Row>
