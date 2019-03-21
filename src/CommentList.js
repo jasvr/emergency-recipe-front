@@ -1,7 +1,16 @@
 import React, { Component } from "react";
-import { Row, Col, CardPanel, Icon,Button } from "react-materialize";
+import { Row, Col, CardPanel, Icon, Button } from "react-materialize";
 
 class CommentList extends Component {
+  constructor() {
+    super()
+    this.handleDelete = this.handleDelete.bind(this)
+  }
+  handleDelete(event) {
+    console.log(event.target)
+  }
+
+
   render() {
     console.log(this.props);
     let comments = this.props.recipe.comments;
@@ -13,17 +22,15 @@ class CommentList extends Component {
             <h6>User Comments</h6>
             {comments ? (
               comments.map(comment => {
-                return <div key={comment._id} >{comment.content};
-                  <Icon small>insert_chart</Icon>
-                  <Button key={comment._id} id='commentDelete'>
-                  
-                  <i class="material-icons"> delete</i>
-                 </Button>
-                  
+                console.log(comment)
+                return (<div key={comment._id} >{comment.content};
+                  <Button onClick={this.props.onDeleteComment} value={comment._id} >
 
+                    <i className="material-icons" value={comment._id}> delete</i>
+                  </Button>
 
-                  <button key='comment._id'></button>
-                </div>
+                  <button ></button>
+                </div>)
               })
             ) : (
                 <div>Loading</div>
