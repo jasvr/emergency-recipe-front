@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Comments from "./Comments";
-import { Col, CardPanel, Row, Card, CardTitle } from "react-materialize";
+import { Col, CardPanel, Row, Card, CardTitle, Button } from "react-materialize";
 import "./RecipeView.css";
 
 class RecipeView extends Component {
@@ -18,9 +19,10 @@ class RecipeView extends Component {
   }
 
   getData() {
-    let recipePath = this.props.location.pathname;
-    const API_URL = "https://emergency-recipe-backend.herokuapp.com/api";
-    fetch(API_URL + recipePath)
+    let recipeID = this.props.match.params.id;
+    console.log("Recipe Path: ", recipeID)
+    const API_URL = "https://emergency-recipe-backend.herokuapp.com/api/recipe/";
+    fetch(API_URL + recipeID)
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -45,7 +47,15 @@ class RecipeView extends Component {
                 {selectedRecipe.title}
               </CardTitle>
             }
-            actions={[<a href="www.google.com">Back to Search Page </a>]}
+            actions={[
+              // <a href="./update">Update</a>
+              // <Button waves="light" node="a" href={"/recipe/update/" + this.state.recipe._id}>
+              //   Update this recipe
+              // </Button>
+              <Link to={"/recipe/update/" + this.state.recipe._id}>
+                Update this Recipe
+              </Link>
+            ]}
           >
             <Row>
               <Col>
@@ -54,7 +64,9 @@ class RecipeView extends Component {
                 </p>
               </Col>
               <Col>
-                <p className="serving">Servings: {selectedRecipe.servings}</p>
+                <p className="serving">
+                  Servings: {selectedRecipe.servings}
+                </p>
               </Col>
             </Row>
 
@@ -77,11 +89,11 @@ class RecipeView extends Component {
               </Col>
             </Row>
             <Row>
-              {/* <Comments
+              <Comments
                 {...this.state}
                 {...this.props}
                 getData={this.getData}
-              /> */}
+              />
             </Row>
           </Card>
         </Row>

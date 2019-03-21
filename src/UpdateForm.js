@@ -1,30 +1,27 @@
 import React, { Component } from 'react';
-import IngredientChips from "./IngredientChips";
 import { Row, Col, Card, Input, Button } from "react-materialize";
+import IngredientChips from './IngredientChips';
 
-const API_URL = "https://emergency-recipe-backend.herokuapp.com/api/recipe/new";
+const API_URL = "https://emergency-recipe-backend.herokuapp.com/api/recipe/";
 
-
-class UpdateFormView extends Component {
+class UpdateForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      keyIngredients: [],
-      servings: "",
-      prepTime: "",
-      picture: "",
-      instructions: "",
+      title: props.recipe.title,
+      keyIngredients: props.recipe.keyIngredients,
+      servings: props.recipe.servings,
+      prepTime: props.recipe.prepTime,
+      picture: props.recipe.picture,
+      instructions: props.recipe.instructions,
       isApproved: true,
-      comments: []
-    }
-
+      comments: props.recipe.comments
+    };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.tokenizeStringIntoArray = this.tokenizeStringIntoArray.bind(this);
     this.uppercaseFirstLetterArray = this.uppercaseFirstLetterArray.bind(this);
-    
   }
 
   handleInputChange(e) {
@@ -63,11 +60,12 @@ class UpdateFormView extends Component {
     }
   }
 
+
   handleSubmit(e) {
     e.preventDefault();
-    console.log("handleSubmit called", this.state);
-    fetch(API_URL, {
-      method: "POST",
+    console.log("handleSubmit called on UpdateForm ", this.state);
+    fetch((API_URL + this.props.match.params.id), {
+      method: "PUT",
       body: JSON.stringify(this.state),
       headers: {
         "Content-Type": "application/json"
@@ -83,17 +81,15 @@ class UpdateFormView extends Component {
   }
 
   render() {
-    // const RECIPE_ID = { match.params.id };
-    // console.log(RECIPE_ID);
-
+    console.log("Props: ", this.props);
     return (
       <div>
-        <Row className="submission-form-container">
+        <Row className="update-form-container">
           <Col l={12} m={12} s={12}>
             <Card
-              className="submission-form-box"
+              className="update-form-box"
               textClassName="white-text"
-              title="Make some changes."
+              title="Fix this thing."
               actions={[
                 <Button
                   waves="light"
@@ -111,7 +107,8 @@ class UpdateFormView extends Component {
                   l={12}
                   label="Name of Recipe"
                   name="title"
-                  // value={this.state.recipe.title}
+                  // value={this.state.title}
+                  defaultValue={this.state.title}
                   onChange={this.handleInputChange}
                 />
 
@@ -121,7 +118,7 @@ class UpdateFormView extends Component {
                   l={6}
                   label="Prep Time"
                   name="prepTime"
-                  // value={this.state.recipe.prepTime}
+                  defaultValue={this.state.prepTime}
                   onChange={this.handleInputChange}
                 />
 
@@ -131,7 +128,7 @@ class UpdateFormView extends Component {
                   l={6}
                   label="Servings"
                   name="servings"
-                  // value={this.state.recipe.servings}
+                  defaultValue={this.state.servings}
                   onChange={this.handleInputChange}
                 />
               </Row>
@@ -143,7 +140,7 @@ class UpdateFormView extends Component {
                   l={12}
                   label="Image URL"
                   name="picture"
-                  // value={this.state.recipe.picture}
+                  defaultValue={this.state.picture}
                   onChange={this.handleInputChange}
                 />
               </Row>
@@ -156,7 +153,7 @@ class UpdateFormView extends Component {
                   type="textarea"
                   label="Instructions"
                   name="instructions"
-                  // value={this.state.recipe.instructions}
+                  defaultValue={this.state.instructions}
                   onChange={this.handleInputChange}
                 />
               </Row>
@@ -170,6 +167,7 @@ class UpdateFormView extends Component {
                   l={12}
                   label="Key Ingredient Tags"
                   name="keyIngredients"
+                  //  defaultValue={this.state.keyIngredients}
                   onChange={this.handleInputChange}
                 />
               </Row>
@@ -181,4 +179,4 @@ class UpdateFormView extends Component {
   }
 }
 
-export default UpdateFormView;
+export default UpdateForm;
