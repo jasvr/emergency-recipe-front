@@ -1,0 +1,16 @@
+table.striped>tbody>tr:nth-child(odd) {
+  background-color: #F4B4FF;
+  
+}
+
+table.striped>tbody>tr {
+  color: #ffffff;
+}
+
+a {
+  color: #000000;
+}
+
+a:hover {
+  color: #3D3D3D;
+}

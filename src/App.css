@@ -6,6 +6,18 @@
   margin-top: 10%;
 }
 
+.link-box{
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  color: #ffffff;
+}
+
+.link-box-link {
+  font-size: 0.75rem;
+  color: #ffffff;
+}
+
 
 
 /* .App-logo {

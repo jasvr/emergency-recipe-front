@@ -5,19 +5,12 @@ import { Table } from 'react-materialize';
 class ResultsTable extends Component {
 
   render() {
-    let exampleArray = [
-      "Fajitas",
-      "Omelet",
-      "Salad",
-      "Burrito",
-      "Quiche",
-      "Soup"
-    ];
-
-    let rowItems = exampleArray.map(recipe => {
+    let rowItems = this.props.searchResults.map((recipe, id) => {
       return (
-          <tr>
-            {recipe}
+          <tr key={id}>
+            <td>
+            <a href={"/recipe/" + recipe._id}>{recipe.title}</a>
+            </td>
           </tr>
       )
 

@@ -1,0 +1,44 @@
+.login-form-box {
+  background-color: #FFD13B;
+}
+
+.auth-inputs > .input-field label {
+  font-size: 1rem;
+  color: #AC36B2;
+}
+
+.auth-inputs input[type=text] {
+  border-bottom: 1px solid #AC36B2;
+}
+
+.auth-inputs input[type=text]:focus:not([readonly]) {
+  border-bottom: 1px solid #AC36B2;
+  box-shadow: 0 1px 0 0 #AC36B2;
+  color: #AC36B2;
+}
+
+.auth-inputs input[type=text]:focus:not([readonly]) + label {
+  color: #AC36B2;
+}
+
+.auth-inputs input[type=password] {
+  border-bottom: 1px solid #AC36B2;
+}
+
+.auth-inputs input[type=password]:focus:not([readonly]) {
+  border-bottom: 1px solid #AC36B2;
+  box-shadow: 0 1px 0 0 #AC36B2;
+  color: #AC36B2;
+}
+
+.auth-inputs input[type=password]:focus:not([readonly]) + label {
+  color: #AC36B2;
+}
+
+#authenticate-link {
+  color: #AC36B2;
+}
+
+#authenticate-link:hover {
+  color: #FFFFFF;
+}
