@@ -1,30 +1,72 @@
 import React, { Component } from "react";
 import "./RecipeFormView.css";
-import { Row, Col, Input, Button } from "react-materialize";
+import { Row, Col, Card, Input } from "react-materialize";
 
 class RecipeFormView extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: undefined,
+      keyIngredients: [],
+      servings: undefined,
+      prepTime: undefined,
+      picture: undefined,
+      instructions: undefined,
+      isApproved: true,
+      comments: []
+    };
+  }
+
+  handleInputChange(e) {
+    // TK
+  }
+
+  handleSubmit(e) {
+    // TK
+  }
+
   render() {
     return (
       <div>
-        <h2>Share your recipies with the rest of the world!</h2>
+        <Row className="auth-form-container">
+          <Col l={12} m={12} s={12}>
+            <Card
+              className="login-form-box"
+              textClassName="white-text"
+              title="Share your recipe with the world!"
+              actions={[
+                <a id="authenticate-link" href="/">
+                  Authenticate Me
+                </a>
+              ]}
+            >
+              <Row>
+                <Input
+                  placeholder="ex. The best lasagna ever!"
+                  s={12}
+                  label="Name of Recipe"
+                />
 
-        <div className="outer-form-div" s={12}>
-          <Row>
-            <Input
-              placeholder="ex. The best lasagna ever!"
-              s={12}
-              label="Name of Recipe"
-            />
+                <Input
+                  placeholder="ex. 20 min"
+                  s={12}
+                  m={6}
+                  label="Prep Time"
+                />
+                <Input placeholder="ex. 2-3" s={12} m={6} label="Servings" />
 
-            <Input placeholder="ex. 20 min" s={12} m={6} label="Prep Time" />
-            <Input placeholder="ex. 2-3" s={12} m={6} label="Servings" />
+                <Input
+                  placeholder="www.grilledcheese.com"
+                  s={12}
+                  label="Link to Image"
+                />
+              </Row>
+            </Card>
+          </Col>
+        </Row>
 
-            <Input
-              placeholder="www.grilledcheese.com"
-              s={12}
-              label="Link to Image"
-            />
-          </Row>
+        {/* <div className="outer-form-div" s={12}>
+          
 
           <Row>
             <Input
@@ -45,52 +87,12 @@ class RecipeFormView extends Component {
           </Row>
 
           <div>
-            <Button waves='light' node='a' href='http://www.google.com'> Submit </Button>
+            <Button waves="light" node="a" href="http://www.google.com">
+              {" "}
+              Submit{" "}
+            </Button>
           </div>
-
-
-
-        </div>
-
-        <Row>
-          <Col m={1} className="grid-example">
-            1
-          </Col>
-
-          <Col m={1} className="grid-example">
-            2
-          </Col>
-          <Col m={1} className="grid-example">
-            3
-          </Col>
-          <Col s={1} className="grid-example">
-            4
-          </Col>
-          <Col s={1} className="grid-example">
-            5
-          </Col>
-          <Col s={1} className="grid-example">
-            6
-          </Col>
-          <Col s={1} className="grid-example">
-            7
-          </Col>
-          <Col s={1} className="grid-example">
-            8
-          </Col>
-          <Col s={1} className="grid-example">
-            9
-          </Col>
-          <Col s={1} className="grid-example">
-            10
-          </Col>
-          <Col s={1} className="grid-example">
-            11
-          </Col>
-          <Col s={1} className="grid-example">
-            12
-          </Col>
-        </Row>
+        </div> */}
       </div>
     );
   }
