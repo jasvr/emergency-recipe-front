@@ -1,25 +1,38 @@
-.outer-form-div {
-    background-color: lightseagreen;
-    padding: 15px;
-    margin: 0 auto;
-    padding: 50px;
-
+.submission-form-box {
+  background-color: #FFD13B;
 }
 
-/* Name, Prep Time, Servings without clicking on line */
-.input-field label {
-    color: black;
-    font-size: 2px;
+.recipe-form-view-inputs {
+  color: #ac36b2;
 }
 
-.textarea.materialize-textarea{
-    padding:.8rem 0 1rem 0;
+.recipe-form-view-inputs .input-field label {
+  color: #ac36b2;
 }
 
-.btn{
-    background-color: #FFD13B;
-    padding: 2rem 4rem;
-    line-height: 4px;
-    font-size: 24px;
-    text-align: center;
+.recipe-form-view-inputs input[type=text] {
+  border-bottom: 1px solid #AC36B2;
+}
+
+.recipe-form-view-inputs input[type=text]:focus:not([readonly]) {
+  border-bottom: 1px solid #AC36B2;
+  box-shadow: 0 1px 0 0 #AC36B2;
+  color: #AC36B2;
+}
+
+.recipe-form-view-inputs input[type=text]:focus:not([readonly]) + label {
+  color: #AC36B2;
+}
+
+.recipe-form-view-inputs textarea.materialize-textarea {
+  border-bottom: 1px solid #AC36B2;
+}
+
+.recipe-form-view-inputs textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #AC36B2;
+  box-shadow: 0 1px 0 0 #AC36B2;
+}
+
+.recipe-form-view-inputs textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #AC36B2;
 }

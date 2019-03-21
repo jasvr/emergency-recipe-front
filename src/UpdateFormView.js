@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import "./RecipeFormView.css";
-import IngredientChips from './IngredientChips';
+import React, { Component } from 'react';
+import IngredientChips from "./IngredientChips";
 import { Row, Col, Card, Input, Button } from "react-materialize";
 
 const API_URL = "https://emergency-recipe-backend.herokuapp.com/api/recipe/new";
 
-class RecipeFormView extends Component {
+
+class UpdateFormView extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,12 +18,13 @@ class RecipeFormView extends Component {
       isApproved: true,
       comments: []
     }
-    
+
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.tokenizeStringIntoArray = this.tokenizeStringIntoArray.bind(this);
     this.uppercaseFirstLetterArray = this.uppercaseFirstLetterArray.bind(this);
+    
   }
 
   handleInputChange(e) {
@@ -42,7 +43,7 @@ class RecipeFormView extends Component {
     console.log(this.state);
   }
 
-  tokenizeStringIntoArray(stringToBeTokenized){
+  tokenizeStringIntoArray(stringToBeTokenized) {
     let tokenArray = stringToBeTokenized.match(/\S+/g);
     console.log("Token array: ", tokenArray);
     return tokenArray;
@@ -65,23 +66,26 @@ class RecipeFormView extends Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log("handleSubmit called", this.state);
-    fetch(API_URL, { 
+    fetch(API_URL, {
       method: "POST",
       body: JSON.stringify(this.state),
       headers: {
         "Content-Type": "application/json"
       }
     })
-    .then(res => res.json())
-    .then(res => {
-      console.log("Message from API: ", res);
-    })
-    .catch(err => {
-      console.log("Error: ", err);
-    })
+      .then(res => res.json())
+      .then(res => {
+        console.log("Message from API: ", res);
+      })
+      .catch(err => {
+        console.log("Error: ", err);
+      })
   }
 
   render() {
+    // const RECIPE_ID = { match.params.id };
+    // console.log(RECIPE_ID);
+
     return (
       <div>
         <Row className="submission-form-container">
@@ -89,7 +93,7 @@ class RecipeFormView extends Component {
             <Card
               className="submission-form-box"
               textClassName="white-text"
-              title="Share your recipe with the world!"
+              title="Make some changes."
               actions={[
                 <Button
                   waves="light"
@@ -177,4 +181,4 @@ class RecipeFormView extends Component {
   }
 }
 
-export default RecipeFormView;
+export default UpdateFormView;
