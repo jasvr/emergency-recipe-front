@@ -1,91 +1,87 @@
 import React, { Component } from "react";
-import {
-  Col,
-  CardPanel,
-  Row,
-  Card,
-  CardTitle,
-  Pagination
-} from "react-materialize";
+import Comments from "./Comments";
+import { Col, CardPanel, Row, Card, CardTitle } from "react-materialize";
 import "./RecipeView.css";
 
 class RecipeView extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      recipe: {}
+    };
+    this.getData = this.getData.bind(this);
+  }
+
+  componentDidMount() {
+    this.getData();
+    console.log("Getting");
+  }
+
+  getData() {
+    let recipePath = this.props.location.pathname;
+    const API_URL = "https://emergency-recipe-backend.herokuapp.com/api";
+    fetch(API_URL + recipePath)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          recipe: res
+        });
+        console.log("got data", this.state);
+      })
+      .catch(err => {
+        console.log("Err: ", err);
+      })
+  }
+
   render() {
-    let ingredientsArray = [
-      "chicken",
-      "onions",
-      "peppers",
-      "beans",
-      "tortilla"
-    ];
-
-    let ingredientsList;
-    ingredientsList = ingredientsArray.map((ingredient, id) => {
-      return <li>{ingredient}</li>;
-    });
-
-    let directionsArray = ["Step 1", "Step 2", "Step 3", "Step 4", "Step 5"];
-
-    let directionsList;
-
-    directionsList = directionsArray.map((direction, id) => {
-      return <li>{direction}</li>;
-    });
-
+    const selectedRecipe = this.state.recipe;
     return (
       <div>
         <Row>
           <Card
             className="m"
             header={
-              <CardTitle image="./temp_food_images/lasagna.jpg">
-                Recipe Title
+              <CardTitle image={selectedRecipe.picture}>
+                {selectedRecipe.title}
               </CardTitle>
             }
-            actions={[<a href="#">Image from NY Times Cooking </a>]}
+            actions={[<a href="www.google.com">Back to Search Page </a>]}
           >
             <Row>
               <Col>
-                <p className="prep-time">Prep Time:</p>
+                <p className="prep-time">
+                  Prep Time: {selectedRecipe.prepTime}
+                </p>
               </Col>
               <Col>
-                <p className="serving">Servings:</p>
+                <p className="serving">Servings: {selectedRecipe.servings}</p>
               </Col>
             </Row>
 
             <Row>
+              {/* come back and map  */}
               <Col s={12} m={4}>
                 <CardPanel className="teal lighten-4 black-text">
-                  <h4>Ingredients</h4>
-                  <ul className="ingredients-list">{ingredientsList}</ul>
+                  <h4>Key Ingredients:{selectedRecipe.keyIngredients}</h4>
+                  <ul className="ingredients-list">ingredientsList</ul>
                 </CardPanel>
               </Col>
 
               <Col s={12} m={8}>
                 <CardPanel className="teal lighten-4 black-text">
                   <h4> Directions</h4>
-                  <ol className="direction-list">{directionsList}</ol>
-                  <Pagination items={10} activePage={2} maxButtons={8} />
+                  <ol className="direction-list">
+                    {selectedRecipe.instructions}
+                  </ol>
                 </CardPanel>
               </Col>
             </Row>
             <Row>
-              <Col s={12} m={12}>
-                <h4> Comments</h4>
-              </Col>
-            </Row>
-            <Row>
-              <Col s={12} m={5}>
-                <CardPanel className="teal lighten-4 black-text">
-                  <h4> Add a New Comment</h4>
-                </CardPanel>
-              </Col>
-
-              <Col s={12} m={7}>
-                <CardPanel className="teal lighten-4 black-text">
-                  <h4> User Comments</h4>
-                </CardPanel>
-              </Col>
+              {/* <Comments
+                {...this.state}
+                {...this.props}
+                getData={this.getData}
+              /> */}
             </Row>
           </Card>
         </Row>
