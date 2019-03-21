@@ -19,31 +19,33 @@ class RecipeView extends Component {
       recipe: {}
     }
     this.handleUpdateRecipe = this.handleUpdateRecipe.bind(this)
+    this.getData = this.getData.bind(this)
   }
-  handleUpdateRecipe(value){
+  handleUpdateRecipe(value) {
     this.setState({
       recipe: value
     })
   }
 
   componentDidMount() {
-    console.log(this.props.location.pathname)
+    this.getData()
+  }
+
+  getData() {
     let recipePath = this.props.location.pathname;
     const API_URL = 'https://emergency-recipe-backend.herokuapp.com/api'
     fetch(API_URL + recipePath)
       .then(res => res.json())
       .then(res => {
-        console.log(res)
         this.setState({
           recipe: res
         })
+        console.log("got data", this.state)
       })
-
   }
 
   render() {
     const selectedRecipe = this.state.recipe
-
 
     return (
       <div>
@@ -83,7 +85,7 @@ class RecipeView extends Component {
               </Col>
             </Row>
             <Row>
-              <Comments comments={selectedRecipe.comments} {...this.props} handleUpdateRecipe={this.handleUpdateRecipe}/>
+              <Comments {...this.state} {...this.props} getData={this.getData} handleUpdateRecipe={this.handleUpdateRecipe} />
             </Row>
           </Card>
         </Row>

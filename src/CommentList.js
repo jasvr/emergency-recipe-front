@@ -8,26 +8,24 @@ class CommentList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            comments: ["no comments"]
+            comments: this.props.recipe.comments
         }
     }
 
     componentDidMount() {
-        if (this.props.comments) {
-            this.setState({ comments: this.props.comments })
-        }
-
+        this.props.getData()
+        this.setState({ comments: this.props.comments })
     }
-
     render() {
-        console.log('comment List:', this.props);
-
-        // if (!this.props.comments) {
-        //     const commentsElement = "no comments to show"
-        // } else {
-        const commentsElement = this.state.comments.map(comment => {
-            return <div>{comment}</div>
-        })
+        // const recipeComments = this.props.recipe.comments.map(comment => {
+        //     return <div>{comment}</div>
+        // })
+        // console.log("comment list", this.state.comments)
+        // const comments = this.state.comments
+        // console.log(comments, "yay!")
+        // const commentsElement = comments.map(comment => {
+        //     return <div>{comment}</div>
+        // })
 
         // }
 
@@ -37,7 +35,7 @@ class CommentList extends Component {
                 <Col s={12} m={7}>
                     <CardPanel className="teal lighten-4 black-text">
                         <h6>User Comments</h6>
-                        {commentsElement}
+                        recipeComments
                     </CardPanel>
                 </Col>
 

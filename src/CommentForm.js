@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Input, Button, Row, CardPanel } from "react-materialize";
+import axios from "axios";
 
 
 
@@ -7,7 +8,8 @@ class CommentForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      comment: "",
+      name: "placeholder",
+      content: "",
     }
 
     this.onSubmit = this.onSubmit.bind(this)
@@ -20,26 +22,24 @@ class CommentForm extends Component {
       [event.target.name]: event.target.value
     });
   }
+
+
+
   onSubmit(event) {
     event.preventDefault()
     let commentPath = this.props.location.pathname;
     const API_URL = 'https://emergency-recipe-backend.herokuapp.com/api/comment'
-    const commentInput = this.state.comment
-    // fetch(API_URL + commentPath, {
-    //   method: "POST",
-    //   cache: "no-cache",
-    //   body: JSON.stringify(commentInput),
-    //   headers:{
-    //     "Content-Type": "application/json"
-    //   }
-    // } 
+    axios.post((API_URL + commentPath), this.state)
+      .then(res => {
+        console.log("response", res)
+        this.props.handleUpdateRecipe(res.data)
+        this.props.getData()
+        // this.props.history.push(this.props.location.pathname)
 
-
-    console.log(event.target)
-
+      })
   }
+
   render() {
-    console.log("ComForm", this.props)
 
 
     return (
@@ -51,7 +51,7 @@ class CommentForm extends Component {
             <div className="com-outer-div">
               <div>Let us know what you think!</div>
               <Row>
-                <Input name="comment" s={12} placeholder='Your comment' type='textarea' onChange={this.handleInputChange} />
+                <Input name="content" s={12} placeholder='Your comment' type='textarea' onChange={this.handleInputChange} />
                 <div>
                   <Button onClick={this.onSubmit} waves='light' node='a' href='http://www.google.com'> Comment </Button>
                 </div>
