@@ -26,10 +26,11 @@ class CommentList extends Component {
                 comments.map(comment => {
                   console.log(comment)
                   return (<div className='eachCommDiv' key={comment._id} >{comment.content};
-                  <Button onClick={this.props.onDeleteComment} value={comment._id} >
-
+                  <div id='buttonContainer'>
+                  <Button id="deleteButton" onClick={this.props.onDeleteComment} value={comment._id} >
                       <i className="material-icons" value={comment._id}> delete</i>
                     </Button>
+                    </div>
 
                   </div>)
                 })
