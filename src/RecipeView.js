@@ -42,7 +42,9 @@ class RecipeView extends Component {
             className="m"
             header={
               <CardTitle image={selectedRecipe.picture}>
+              <div className="title">
                 {selectedRecipe.title}
+                </div>
               </CardTitle>
             }
             actions={[<a href="www.google.com">Back to Search Page </a>]}
