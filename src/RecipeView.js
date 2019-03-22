@@ -2,9 +2,14 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Comments from "./Comments";
 import "./RecipeView.css";
-import { Col, CardPanel, Row, Card, CardTitle, Button } from "react-materialize";
-
-let ingredientListItems = [];
+import {
+  Col,
+  CardPanel,
+  Row,
+  Card,
+  CardTitle,
+  Button
+} from "react-materialize";
 
 class RecipeView extends Component {
   constructor(props) {
@@ -22,8 +27,9 @@ class RecipeView extends Component {
 
   getData() {
     let recipeID = this.props.match.params.id;
-    console.log("Recipe Path: ", recipeID)
-    const API_URL = "https://emergency-recipe-backend.herokuapp.com/api/recipe/";
+    console.log("Recipe Path: ", recipeID);
+    const API_URL =
+      "https://emergency-recipe-backend.herokuapp.com/api/recipe/";
     fetch(API_URL + recipeID)
       .then(res => res.json())
       .then(res => {
@@ -33,13 +39,13 @@ class RecipeView extends Component {
         console.log("got data", this.state);
       })
       .catch(err => {
-        console.log("Err: ", err);
-      })
+        console.log(err);
+      });
   }
 
   render() {
     const selectedRecipe = this.state.recipe;
-
+    console.log(this.props);
 
     return (
       <div>
@@ -52,12 +58,10 @@ class RecipeView extends Component {
             </CardTitle>
           }
           actions={[
-            // <a href="./update">Update</a>
-            // <Button waves="light" node="a" href={"/recipe/update/" + this.state.recipe._id}>
-            //   Update this recipe
-            // </Button>
             <Link to={"/recipe/update/" + this.state.recipe._id}>
-              Update this Recipe
+              <Button waves="light" className="pink">
+                Update this Recipe
+              </Button>
             </Link>
           ]}
         >
@@ -83,27 +87,25 @@ class RecipeView extends Component {
             <Col s={12} m={4}>
               <CardPanel className="recipe-box">
                 <h5>Key Ingredients:</h5>
-                {
-                  selectedRecipe.keyIngredients !== undefined ? selectedRecipe.keyIngredients.map((ingredient, id) => {return <p className="ingredient-item">{ingredient}</p>}) : <p>Loading...</p>
-                }
+                {selectedRecipe.keyIngredients !== undefined ? (
+                  selectedRecipe.keyIngredients.map((ingredient, id) => {
+                    return <p className="ingredient-item">{ingredient}</p>;
+                  })
+                ) : (
+                  <p>Loading...</p>
+                )}
               </CardPanel>
             </Col>
 
             <Col s={12} m={8}>
               <CardPanel className="recipe-box">
                 <h5>Directions</h5>
-                <p className="direction-text">
-                  {selectedRecipe.instructions}
-                </p>
+                <p className="direction-text">{selectedRecipe.instructions}</p>
               </CardPanel>
             </Col>
           </Row>
           <Row>
-            <Comments
-              {...this.state}
-              {...this.props}
-              getData={this.getData}
-            />
+            <Comments {...this.state} {...this.props} getData={this.getData} />
           </Row>
         </Card>
       </div>

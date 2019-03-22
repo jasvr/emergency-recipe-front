@@ -1,29 +1,43 @@
 import React, { Component } from "react";
-import { Row, Col, CardPanel } from "react-materialize";
+import { Row, Col, CardPanel, Icon, Button } from "react-materialize";
+import './CommentList.css'
 
 class CommentList extends Component {
-  render() {
-    // const recipeComments = this.props.recipe.comments.map(comment => {
-    //     return <div>{comment}</div>
-    // })
-    // console.log("comment list", this.state.comments)
-    // const comments = this.state.comments
-    // console.log(comments, "yay!")
-    // const commentsElement = comments.map(comment => {
-    //     return <div>{comment}</div>
-    // })
+  constructor() {
+    super()
+    this.handleDelete = this.handleDelete.bind(this)
+  }
+  handleDelete(event) {
+    console.log(event.target)
+  }
 
-    // }
-    console.log("comment list", this.props);
-    const commentList = this.props.recipe.comments.map(comment => {
-      return <p>{comment.content}</p>;
-    });
+
+  render() {
+    console.log(this.props);
+    let comments = this.props.recipe.comments;
+
     return (
       <div>
         <Col s={12} m={7}>
           <CardPanel className="teal lighten-4 black-text">
-            <h6>User Comments</h6>
-            {commentList}
+            <h4>User Comments</h4>
+            <div className='commentContainer'>
+              {comments ? (
+                comments.map(comment => {
+                  console.log(comment)
+                  return (<div className='eachCommDiv' key={comment._id} >{comment.content};
+                  <div id='buttonContainer'>
+                  <Button id="deleteButton" onClick={this.props.onDeleteComment} value={comment._id} >
+                      <i className="material-icons" value={comment._id}> delete</i>
+                    </Button>
+                    </div>
+
+                  </div>)
+                })
+              ) : (
+                  <div>Loading</div>
+                )}
+            </div>
           </CardPanel>
         </Col>
       </div>

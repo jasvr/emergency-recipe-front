@@ -4,6 +4,7 @@ import "./SearchBar.css";
 import { Input } from "react-materialize";
 import ResultsTable from "./ResultsTable";
 
+
 let searchDelay;
 let searchDelayInterval = 500;
 
@@ -43,13 +44,15 @@ class SearchBar extends Component {
     clearTimeout(searchDelay);
   }
 
-  uppercaseFirstLetterArray(arrayArg){
+  uppercaseFirstLetterArray(arrayArg) {
     let fixedArray = [];
 
-    if(arrayArg !== null){
+    if (arrayArg !== null) {
       for (let i = 0; i < arrayArg.length; i++) {
         let currentWord = arrayArg[i];
-        fixedArray.push(currentWord.charAt(0).toUpperCase() + currentWord.slice(1));
+        fixedArray.push(
+          currentWord.charAt(0).toUpperCase() + currentWord.slice(1)
+        );
       }
       return fixedArray;
     } else {
@@ -60,7 +63,7 @@ class SearchBar extends Component {
   doSearch() {
     console.log("Search called.");
     let searchArray = this.uppercaseFirstLetterArray(this.state.ingredients);
-    if(this.state.ingredients){
+    if (this.state.ingredients) {
       fetch(API_URL, {
         method: "POST",
         cache: "no-cache",
@@ -74,7 +77,7 @@ class SearchBar extends Component {
           console.log("Search result: ", res);
           this.setState({
             searchResults: res
-          })
+          });
         })
         .catch(err => {
           console.log("Error: ", err);
@@ -82,9 +85,8 @@ class SearchBar extends Component {
     } else {
       this.setState({
         searchResults: []
-      })
+      });
     }
-    
   }
 
   render() {
@@ -96,7 +98,7 @@ class SearchBar extends Component {
           onChange={this.handleInputChange}
           onKeyUp={this.startSearchCountdown}
           onKeyDown={this.clearSearchCountdown}
-          placeholder={"What do you need to get rid of?"}
+          label={"What do you need to get rid of?"}
         />
         <ResultsTable searchResults={this.state.searchResults} />
       </div>
