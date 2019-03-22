@@ -1,0 +1,14 @@
+.eachCommDiv {
+border: green solid;
+padding: 10px;
+font-size: x-large
+
+}
+
+.btn i{
+font-size: 2em;
+}
+
+#deleteButton{
+    padding:1.5em 2em;    
+}
