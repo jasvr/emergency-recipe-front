@@ -113,7 +113,6 @@ class UpdateForm extends Component {
                   l={12}
                   label="Name of Recipe"
                   name="title"
-                  // value={this.state.title}
                   defaultValue={this.state.title}
                   onChange={this.handleInputChange}
                 />

@@ -60,12 +60,13 @@ class RecipeView extends Component {
             </CardTitle>
           }
           actions={[
-            // <a href="./update">Update</a>
-            // <Button waves="light" node="a" href={"/recipe/update/" + this.state.recipe._id}>
-            //   Update this recipe
-            // </Button>
             <Link to={"/recipe/update/" + this.state.recipe._id}>
-              Update this Recipe
+              <Button
+                waves="light"
+                className="pink"
+              >
+                Update this Recipe
+              </Button>
             </Link>
           ]}
         >
