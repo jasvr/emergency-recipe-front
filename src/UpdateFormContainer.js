@@ -30,7 +30,6 @@ class UpdateFormView extends Component {
 
     return (
       <div>
-        <p>Updating {this.props.match.params.id}</p>
         {this.state.recipe ? <UpdateForm recipe={this.state.recipe} {...this.props} /> : <p>Loading...</p>}
       </div>
     );

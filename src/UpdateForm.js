@@ -39,12 +39,10 @@ class UpdateForm extends Component {
     this.setState({
       [name]: value
     });
-    console.log(this.state);
   }
 
   tokenizeStringIntoArray(stringToBeTokenized) {
     let tokenArray = stringToBeTokenized.match(/\S+/g);
-    console.log("Token array: ", tokenArray);
     return tokenArray;
   }
 
@@ -65,7 +63,6 @@ class UpdateForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log("handleSubmit called on UpdateForm ", this.state);
     fetch((API_URL + this.props.match.params.id), {
       method: "PUT",
       body: JSON.stringify(this.state),
