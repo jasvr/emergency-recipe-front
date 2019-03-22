@@ -22,7 +22,6 @@ class CommentForm extends Component {
                   l={12}
                   label="Your Comment"
                   name="users-comment"
-                  // type="textarea"
                   onChange={this.props.onInputChange}
                 />
 </div>
@@ -31,7 +30,6 @@ class CommentForm extends Component {
                     onClick={this.props.onSubmit}
                     waves="light"
                     node="a"
-                    href="http://www.google.com"
                   >
                     Comment
                   </Button>

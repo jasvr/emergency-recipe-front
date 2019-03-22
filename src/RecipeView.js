@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Comments from "./Comments";
+import NewComments from "./NewComments";
 import "./RecipeView.css";
 import {
   Col,
@@ -105,7 +105,7 @@ class RecipeView extends Component {
             </Col>
           </Row>
           <Row>
-            <Comments {...this.state} {...this.props} getData={this.getData} />
+            <NewComments {...this.state} {...this.props} getData={this.getData} />
           </Row>
         </Card>
       </div>
