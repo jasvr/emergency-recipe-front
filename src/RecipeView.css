@@ -1,27 +1,54 @@
-.ingredients-list {
-    text-align: left;
-    font-size: 1.5em;
+.recipe-view-card {
+  background-color: #FFD13B;
 }
 
-.direction-list{
-        text-align: left;
-        font-size: 1.5em;
-        margin: 0;
+#recipe-view .card-title {
+  color: #FFFFFF;
+  text-shadow: 0px 0px 20px rgba(0,0,0,0.8);
+}
+
+.recipe-box {
+  background-color: #AC36B2;
+  color: #ffffff;
+}
+
+.direction-text{
+  white-space: pre-wrap;
+}
+
+.ingredient-item {
+  text-align: left;
+}
+
+
+
+
+
+
+/* OLD CSS. */
+.ingredients-list {
+  text-align: left;
+  font-size: 1.5em;
+}
+
+.direction-list {
+  text-align: left;
+  font-size: 1.5em;
+  margin: 0;
 }
 
 /* Recipe Title on top of Image */
-.card .card-image .card-title{
-    color:black
-    
+.card .card-image .card-title {
+  color: black;
 }
 /* Recipe Size on top of Image */
 .card .card-title {
-    font-size: 40px;
+  font-size: 40px;
 }
 
-.prep-time{
-    font-size: 2em;
+.prep-time {
+  font-size: 2em;
 }
 .serving {
-    font-size: 2em;
+  font-size: 2em;
 }

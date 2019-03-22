@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import "./RecipeFormView.css";
 import IngredientChips from './IngredientChips';
+import { Redirect } from "react-router-dom";
 import { Row, Col, Card, Input, Button } from "react-materialize";
 
 const API_URL = "https://emergency-recipe-backend.herokuapp.com/api/recipe/new";
+let shouldRedirect = false;
+let newRecipeID = "";
 
 class RecipeFormView extends Component {
   constructor(props) {
@@ -75,6 +78,11 @@ class RecipeFormView extends Component {
     .then(res => res.json())
     .then(res => {
       console.log("Message from API: ", res);
+      newRecipeID = res._id;
+      shouldRedirect = true;
+    })
+    .then(() => {
+      this.forceUpdate();
     })
     .catch(err => {
       console.log("Error: ", err);
@@ -82,6 +90,10 @@ class RecipeFormView extends Component {
   }
 
   render() {
+    if (shouldRedirect) {
+      return <Redirect to={"/recipe/" + newRecipeID} />
+    }
+
     return (
       <div>
         <Row className="submission-form-container">
