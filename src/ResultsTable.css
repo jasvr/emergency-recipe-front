@@ -14,3 +14,7 @@ a {
 a:hover {
   color: #3D3D3D;
 }
+
+.results-table{
+  margin-bottom: 10%;
+}

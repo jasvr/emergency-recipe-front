@@ -17,7 +17,7 @@ class ResultsTable extends Component {
     });
 
     return (
-      <div>
+      <div className="results-table">
         <Table striped={true}>
           <tbody>{rowItems}</tbody>
         </Table>

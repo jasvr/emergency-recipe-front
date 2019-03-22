@@ -43,13 +43,15 @@ class SearchBar extends Component {
     clearTimeout(searchDelay);
   }
 
-  uppercaseFirstLetterArray(arrayArg){
+  uppercaseFirstLetterArray(arrayArg) {
     let fixedArray = [];
 
-    if(arrayArg !== null){
+    if (arrayArg !== null) {
       for (let i = 0; i < arrayArg.length; i++) {
         let currentWord = arrayArg[i];
-        fixedArray.push(currentWord.charAt(0).toUpperCase() + currentWord.slice(1));
+        fixedArray.push(
+          currentWord.charAt(0).toUpperCase() + currentWord.slice(1)
+        );
       }
       return fixedArray;
     } else {
@@ -60,7 +62,7 @@ class SearchBar extends Component {
   doSearch() {
     console.log("Search called.");
     let searchArray = this.uppercaseFirstLetterArray(this.state.ingredients);
-    if(this.state.ingredients){
+    if (this.state.ingredients) {
       fetch(API_URL, {
         method: "POST",
         cache: "no-cache",
@@ -74,7 +76,7 @@ class SearchBar extends Component {
           console.log("Search result: ", res);
           this.setState({
             searchResults: res
-          })
+          });
         })
         .catch(err => {
           console.log("Error: ", err);
@@ -82,9 +84,8 @@ class SearchBar extends Component {
     } else {
       this.setState({
         searchResults: []
-      })
+      });
     }
-    
   }
 
   render() {
