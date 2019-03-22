@@ -1,0 +1,18 @@
+.user-form-input{
+color:black;
+}
+.user-form-input .input-field label {
+color: #0D997D;
+font-size: 1.4em;
+}
+.user-form-input input[type=text] {
+border-bottom: 1.2px solid #0D997D;
+}
+.user-form-input  input[type=text]:focus:not([readonly]) {
+border-bottom: 1px solid #AC36B2;
+box-shadow: 0 1px 0 0 #AC36B2;
+color: #AC36B2;
+}
+.comment-container{
+padding: 20px;
+}
