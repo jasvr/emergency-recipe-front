@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Col, Input, Button, Row, CardPanel } from "react-materialize";
-import axios from "axios";
+import './CommentForm.css'
+
 
 class CommentForm extends Component {
   render() {
@@ -13,14 +14,18 @@ class CommentForm extends Component {
 
             <div className="com-outer-div">
               <div>Let us know what you think!</div>
-              <Row>
-                <Input
-                  name="content"
+              <Row className="user-form-input">
+              <div className="comment-container">
+              <Input
                   s={12}
-                  placeholder="Your comment"
-                  type="textarea"
+                  m={12}
+                  l={12}
+                  label="Your Comment"
+                  name="users-comment"
+                  // type="textarea"
                   onChange={this.props.onInputChange}
                 />
+</div>
                 <div>
                   <Button
                     onClick={this.props.onSubmit}

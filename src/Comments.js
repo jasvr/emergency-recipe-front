@@ -58,7 +58,7 @@ class Comments extends Component {
     return (
       <div>
         <Col s={12} m={12}>
-          <h4>Comments</h4>
+          <h2>Comments</h2>
           <CommentForm
             {...this.state}
             {...this.props}
