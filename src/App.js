@@ -45,7 +45,7 @@ class App extends Component {
   handleSignUp(e) {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/users/signup", {
+      .post("https://emergency-recipe-backend.herokuapp.com/users/signup", {
         username: this.state.username,
         password: this.state.password
       })
@@ -59,7 +59,7 @@ class App extends Component {
   handleLogIn(e) {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/users/login", {
+      .post("https://emergency-recipe-backend.herokuapp.com/users/login", {
         username: this.state.username,
         password: this.state.password
       })
