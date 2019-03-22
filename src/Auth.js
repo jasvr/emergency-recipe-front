@@ -9,6 +9,10 @@ class Auth extends Component {
     this.signUpAndRedirect = this.signUpAndRedirect.bind(this);
   }
 
+  componentDidMount() {
+    console.log(this.props);
+  }
+
   loginAndRedirect(event) {
     this.props.handleLogIn(event);
     this.props.history.push("/");

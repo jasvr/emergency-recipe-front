@@ -11,8 +11,6 @@ import {
   Button
 } from "react-materialize";
 
-let ingredientListItems = [];
-
 class RecipeView extends Component {
   constructor(props) {
     super(props);
@@ -61,10 +59,7 @@ class RecipeView extends Component {
           }
           actions={[
             <Link to={"/recipe/update/" + this.state.recipe._id}>
-              <Button
-                waves="light"
-                className="pink"
-              >
+              <Button waves="light" className="pink">
                 Update this Recipe
               </Button>
             </Link>
