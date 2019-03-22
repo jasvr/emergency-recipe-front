@@ -25,7 +25,7 @@ class CommentList extends Component {
                   console.log(comment);
                   return (
                     <div className="eachCommDiv" key={comment._id}>
-                      {comment.content};
+                      {comment.content}
                       <div id="buttonContainer">
                         <Button
                           id="deleteButton"
