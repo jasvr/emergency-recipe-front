@@ -5,8 +5,7 @@ import CommentList from "./CommentList";
 import CommentForm from "./CommentForm";
 import axios from "axios";
 
-const API_URL =
-  "https://emergency-recipe-backend.herokuapp.com/api/comment";
+const API_URL = "https://emergency-recipe-backend.herokuapp.com/api/comment";
 
 class Comments extends Component {
   constructor(props) {
@@ -41,12 +40,10 @@ class Comments extends Component {
   onDeleteComment(event) {
     event.preventDefault();
     let commentId = event.target.value;
-    console.log(event.target.value)
     axios.delete(API_URL + "/" + commentId).then(res => {
-      console.log(res)
+      console.log("deleted", res);
       this.props.getData();
     });
-
   }
 
   render() {
@@ -61,7 +58,11 @@ class Comments extends Component {
             onSubmit={this.onSubmit}
             onInputChange={this.onInputChange}
           />
-          <CommentList onDeleteComment={this.onDeleteComment}{...this.state} {...this.props} />
+          <CommentList
+            onDeleteComment={this.onDeleteComment}
+            {...this.state}
+            {...this.props}
+          />
         </Col>
       </div>
     );
