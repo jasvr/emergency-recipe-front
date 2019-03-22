@@ -12,7 +12,6 @@ class CommentList extends Component {
   }
 
   render() {
-    console.log(this.props);
     let comments = this.props.recipe.comments;
 
     return (

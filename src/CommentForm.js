@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Col, Input, Button, Row, CardPanel } from "react-materialize";
-import './CommentForm.css'
-
+import "./CommentForm.css";
 
 class CommentForm extends Component {
   render() {
@@ -15,17 +14,17 @@ class CommentForm extends Component {
             <div className="com-outer-div">
               <div>Let us know what you think!</div>
               <Row className="user-form-input">
-              <div className="comment-container">
-              <Input
-                  s={12}
-                  m={12}
-                  l={12}
-                  label="Your Comment"
-                  name="users-comment"
-                  // type="textarea"
-                  onChange={this.props.onInputChange}
-                />
-</div>
+                <div className="comment-container">
+                  <Input
+                    s={12}
+                    m={12}
+                    l={12}
+                    label="Your Comment"
+                    name="content"
+                    // type="textarea"
+                    onChange={this.props.onInputChange}
+                  />
+                </div>
                 <div>
                   <Button
                     onClick={this.props.onSubmit}
