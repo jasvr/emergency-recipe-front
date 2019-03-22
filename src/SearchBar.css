@@ -15,3 +15,7 @@
 #mainSearch:focus:not([readonly])+label {
   color: #ffffff;
 }
+
+.input-field label {
+  color: #ffffff;
+}

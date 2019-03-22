@@ -96,7 +96,7 @@ class SearchBar extends Component {
           onChange={this.handleInputChange}
           onKeyUp={this.startSearchCountdown}
           onKeyDown={this.clearSearchCountdown}
-          placeholder={"What do you need to get rid of?"}
+          label={"What do you need to get rid of?"}
         />
         <ResultsTable searchResults={this.state.searchResults} />
       </div>
