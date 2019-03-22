@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './ResultsTable.css';
 import { Table } from 'react-materialize';
+import { Link } from "react-router-dom";
 import { AnimateOnChange } from "react-animation";
 
 class ResultsTable extends Component {
@@ -10,7 +11,7 @@ class ResultsTable extends Component {
       return (
           <tr key={id}>
             <td>
-            <a href={"/recipe/" + recipe._id}>{recipe.title}</a>
+              <Link to={"/recipe/" + recipe._id}>{recipe.title}</Link>
             </td>
           </tr>
       )
