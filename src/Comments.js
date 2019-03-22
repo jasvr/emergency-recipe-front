@@ -48,6 +48,7 @@ class Comments extends Component {
       axios.delete(API_URL + "/" + commentId).then(res => {
         console.log("deleted", res);
         this.props.getData();
+        this.forceUpdate();
       });
     } else {
       alert("Please log in or create a new account!");
