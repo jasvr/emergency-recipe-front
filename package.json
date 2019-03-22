@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "react": "^16.8.4",
+    "react-animation": "^1.0.9",
     "react-dom": "^16.8.4",
     "react-materialize": "^2.6.0",
     "react-router-dom": "^5.0.0",

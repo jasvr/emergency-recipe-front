@@ -4,6 +4,7 @@ import "./SearchBar.css";
 import { Input } from "react-materialize";
 import ResultsTable from "./ResultsTable";
 
+
 let searchDelay;
 let searchDelayInterval = 500;
 
