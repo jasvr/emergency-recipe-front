@@ -1,133 +1,116 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Comments from "./Comments";
+import "./RecipeView.css";
 import {
   Col,
   CardPanel,
   Row,
   Card,
   CardTitle,
-  Pagination
+  Button
 } from "react-materialize";
-import "./RecipeView.css";
+
+let ingredientListItems = [];
 
 class RecipeView extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      recipe: {}
+    };
+    this.getData = this.getData.bind(this);
+  }
+
+  componentDidMount() {
+    this.getData();
+    console.log("Getting");
+  }
+
+  getData() {
+    let recipeID = this.props.match.params.id;
+    console.log("Recipe Path: ", recipeID);
+    const API_URL =
+      "https://emergency-recipe-backend.herokuapp.com/api/recipe/";
+    fetch(API_URL + recipeID)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          recipe: res
+        });
+        console.log("got data", this.state);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   render() {
-    let ingredientsArray = [
-      "chicken",
-      "onions",
-      "peppers",
-      "beans",
-      "tortilla"
-    ];
-
-    let ingredientsList;
-    ingredientsList = ingredientsArray.map((ingredient, id) => {
-      return <li>{ingredient}</li>;
-    });
-
-    let directionsArray = ["Step 1", "Step 2", "Step 3", "Step 4", "Step 5"];
-
-    let directionsList;
-
-    directionsList = directionsArray.map((direction, id) => {
-      return <li>{direction}</li>;
-    });
+    const selectedRecipe = this.state.recipe;
 
     return (
       <div>
-        <Row>
-          <Card
-            className="m"
-            header={
-              <CardTitle image="./temp_food_images/lasagna.jpg">
-                Recipe Title
-              </CardTitle>
-            }
-            actions={[<a href="#">Image from NY Times Cooking </a>]}
-          >
-            <Row>
-              <Col>
-                <p className="prep-time">Prep Time:</p>
-              </Col>
-              <Col>
-                <p className="serving">Servings:</p>
-              </Col>
-            </Row>
+        <Card
+          className="recipe-view-card"
+          id="recipe-view"
+          header={
+            <CardTitle image={selectedRecipe.picture}>
+              {selectedRecipe.title}
+            </CardTitle>
+          }
+          actions={[
+            // <a href="./update">Update</a>
+            // <Button waves="light" node="a" href={"/recipe/update/" + this.state.recipe._id}>
+            //   Update this recipe
+            // </Button>
+            <Link to={"/recipe/update/" + this.state.recipe._id}>
+              Update this Recipe
+            </Link>
+          ]}
+        >
+          <Row>
+            <Col s={12} m={5} offset="l1 m1">
+              <CardPanel className="recipe-box">
+                <span>
+                  <b>Prep Time:</b> {selectedRecipe.prepTime}
+                </span>
+              </CardPanel>
+            </Col>
+            <Col s={12} m={5}>
+              <CardPanel className="recipe-box">
+                <span>
+                  <b>Servings:</b> {selectedRecipe.servings}
+                </span>
+              </CardPanel>
+            </Col>
+          </Row>
 
-            <Row>
-              <Col s={12} m={4}>
-                <CardPanel className="teal lighten-4 black-text">
-                  <h4>Ingredients</h4>
-                  <ul className="ingredients-list">{ingredientsList}</ul>
-                </CardPanel>
-              </Col>
+          <Row>
+            {/* come back and map  */}
+            <Col s={12} m={4}>
+              <CardPanel className="recipe-box">
+                <h5>Key Ingredients:</h5>
+                {selectedRecipe.keyIngredients !== undefined ? (
+                  selectedRecipe.keyIngredients.map((ingredient, id) => {
+                    return <p className="ingredient-item">{ingredient}</p>;
+                  })
+                ) : (
+                  <p>Loading...</p>
+                )}
+              </CardPanel>
+            </Col>
 
-              <Col s={12} m={8}>
-                <CardPanel className="teal lighten-4 black-text">
-                  <h4> Directions</h4>
-                  <ol className="direction-list">{directionsList}</ol>
-                  <Pagination items={10} activePage={2} maxButtons={8} />
-                </CardPanel>
-              </Col>
-            </Row>
-            <Row>
-              <Col s={12} m={12}>
-                <h4> Comments</h4>
-              </Col>
-            </Row>
-            <Row>
-              <Col s={12} m={5}>
-                <CardPanel className="teal lighten-4 black-text">
-                  <h4> Add a New Comment</h4>
-                </CardPanel>
-              </Col>
-
-              <Col s={12} m={7}>
-                <CardPanel className="teal lighten-4 black-text">
-                  <h4> User Comments</h4>
-                </CardPanel>
-              </Col>
-            </Row>
-          </Card>
-        </Row>
-        <Row>
-          <Col m={1} className="grid-example">
-            1
-          </Col>
-
-          <Col m={1} className="grid-example">
-            2
-          </Col>
-          <Col m={1} className="grid-example">
-            3
-          </Col>
-          <Col s={1} className="grid-example">
-            4
-          </Col>
-          <Col s={1} className="grid-example">
-            5
-          </Col>
-          <Col s={1} className="grid-example">
-            6
-          </Col>
-          <Col s={1} className="grid-example">
-            7
-          </Col>
-          <Col s={1} className="grid-example">
-            8
-          </Col>
-          <Col s={1} className="grid-example">
-            9
-          </Col>
-          <Col s={1} className="grid-example">
-            10
-          </Col>
-          <Col s={1} className="grid-example">
-            11
-          </Col>
-          <Col s={1} className="grid-example">
-            12
-          </Col>
-        </Row>
+            <Col s={12} m={8}>
+              <CardPanel className="recipe-box">
+                <h5>Directions</h5>
+                <p className="direction-text">{selectedRecipe.instructions}</p>
+              </CardPanel>
+            </Col>
+          </Row>
+          <Row>
+            <Comments {...this.state} {...this.props} getData={this.getData} />
+          </Row>
+        </Card>
       </div>
     );
   }

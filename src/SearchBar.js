@@ -43,27 +43,48 @@ class SearchBar extends Component {
     clearTimeout(searchDelay);
   }
 
+  uppercaseFirstLetterArray(arrayArg){
+    let fixedArray = [];
+
+    if(arrayArg !== null){
+      for (let i = 0; i < arrayArg.length; i++) {
+        let currentWord = arrayArg[i];
+        fixedArray.push(currentWord.charAt(0).toUpperCase() + currentWord.slice(1));
+      }
+      return fixedArray;
+    } else {
+      return arrayArg;
+    }
+  }
+
   doSearch() {
     console.log("Search called.");
-
-    fetch(API_URL, {
-      method: "POST",
-      cache: "no-cache",
-      body: JSON.stringify(this.state.ingredients),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => res.json())
-      .then(res => {
-        console.log("Search result: ", res);
-        this.setState({
-          searchResults: res
-        })
+    let searchArray = this.uppercaseFirstLetterArray(this.state.ingredients);
+    if(this.state.ingredients){
+      fetch(API_URL, {
+        method: "POST",
+        cache: "no-cache",
+        body: JSON.stringify(searchArray),
+        headers: {
+          "Content-Type": "application/json"
+        }
       })
-      .catch(err => {
-        console.log("Error: ", err);
-      });
+        .then(res => res.json())
+        .then(res => {
+          console.log("Search result: ", res);
+          this.setState({
+            searchResults: res
+          })
+        })
+        .catch(err => {
+          console.log("Error: ", err);
+        });
+    } else {
+      this.setState({
+        searchResults: []
+      })
+    }
+    
   }
 
   render() {
