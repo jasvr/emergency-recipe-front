@@ -98,7 +98,12 @@ class App extends Component {
                 path="/recipe/update/:id"
                 component={UpdateFormContainer}
               />
-              <Route path="/recipe/:id" component={RecipeView} />
+              <Route
+                path="/recipe/:id"
+                render={props => {
+                  return <RecipeView {...this.state} {...props} />;
+                }}
+              />
               <Route path="/new-recipe" component={RecipeFormView} />
               <Route
                 path="/auth"

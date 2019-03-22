@@ -30,20 +30,28 @@ class Comments extends Component {
   onSubmit(event) {
     event.preventDefault();
     let commentPath = this.props.location.pathname;
-
-    axios.post(API_URL + commentPath, this.state).then(res => {
-      console.log("response", res);
-      this.props.getData();
-    });
+    if (this.props.isLoggedIn) {
+      axios.post(API_URL + commentPath, this.state).then(res => {
+        console.log("response", res);
+        this.props.getData();
+      });
+    } else {
+      alert("Please log in or create a new account!");
+    }
   }
 
   onDeleteComment(event) {
     event.preventDefault();
-    let commentId = event.target.value;
-    axios.delete(API_URL + "/" + commentId).then(res => {
-      console.log("deleted", res);
-      this.props.getData();
-    });
+    console.log(this.props.isLoggedIn);
+    if (this.props.isLoggedIn) {
+      let commentId = event.target.value;
+      axios.delete(API_URL + "/" + commentId).then(res => {
+        console.log("deleted", res);
+        this.props.getData();
+      });
+    } else {
+      alert("Please log in or create a new account!");
+    }
   }
 
   render() {

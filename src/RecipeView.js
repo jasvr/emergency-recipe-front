@@ -47,6 +47,7 @@ class RecipeView extends Component {
 
   render() {
     const selectedRecipe = this.state.recipe;
+    console.log(this.props);
 
     return (
       <div>
