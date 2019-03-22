@@ -1,9 +1,8 @@
-table.striped>tbody>tr:nth-child(odd) {
-  background-color: #F4B4FF;
-  
+table.striped > tbody > tr:nth-child(odd) {
+  background-color: #f4b4ff;
 }
 
-table.striped>tbody>tr {
+table.striped > tbody > tr {
   color: #ffffff;
 }
 
@@ -12,5 +11,13 @@ a {
 }
 
 a:hover {
-  color: #3D3D3D;
+  color: #3d3d3d;
+}
+
+.results-table {
+  margin-bottom: 10%;
+}
+
+.animate-on-change {
+  width: 100%;
 }

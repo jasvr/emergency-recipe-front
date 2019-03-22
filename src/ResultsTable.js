@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './ResultsTable.css';
 import { Table } from 'react-materialize';
+import { AnimateOnChange } from "react-animation";
 
 class ResultsTable extends Component {
 
@@ -17,10 +18,12 @@ class ResultsTable extends Component {
     });
 
     return (
-      <div>
-        <Table striped={true}>
-          <tbody>{rowItems}</tbody>
-        </Table>
+      <div className="results-table">
+        <AnimateOnChange>
+          <Table striped={true}>
+            <tbody>{rowItems}</tbody>
+          </Table>
+        </AnimateOnChange>
       </div>
     );
   }
