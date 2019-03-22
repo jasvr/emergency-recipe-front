@@ -28,8 +28,7 @@ class CommentForm extends Component {
                     node="a"
                     href="http://www.google.com"
                   >
-                    {" "}
-                    Comment{" "}
+                    Comment
                   </Button>
                 </div>
               </Row>
