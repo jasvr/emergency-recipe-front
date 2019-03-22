@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Col, CardPanel, Button } from "react-materialize";
+import CommentItem from "./CommentItem";
 import "./CommentList.css";
 
 class CommentList extends Component {
@@ -13,6 +14,15 @@ class CommentList extends Component {
 
   render() {
     let comments = this.props.recipe.comments;
+    let commentItemComponents = [];
+
+    if (this.props.recipe.comments){
+      commentItemComponents = comments.map((comment, id) => {
+        return (<CommentItem comment={comment} key={id} {...this.props} />)
+      })
+    }
+
+    
 
     return (
       <div>
@@ -20,7 +30,8 @@ class CommentList extends Component {
           <CardPanel className="teal lighten-4 black-text">
             <h4>User Comments</h4>
             <div className="commentContainer">
-              {comments ? (
+            {commentItemComponents}
+              {/* {comments ? (
                 comments.map(comment => {
                   console.log(comment);
                   return (
@@ -29,8 +40,8 @@ class CommentList extends Component {
                       <div id="buttonContainer">
                         <Button
                           id="deleteButton"
-                          onClick={this.props.onDeleteComment}
-                          value={comment._id}
+                          onClick={(this.comment._id) => this.props.onDeleteComment(comment._id)}
+                          // value={comment._id}
                         >
                           <i className="material-icons" value={comment._id}>
                             {" "}
@@ -42,8 +53,8 @@ class CommentList extends Component {
                   );
                 })
               ) : (
-                <div>Loading</div>
-              )}
+                <div>Loading...</div>
+              )} */}
             </div>
           </CardPanel>
         </Col>
