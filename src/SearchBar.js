@@ -4,7 +4,6 @@ import "./SearchBar.css";
 import { Input } from "react-materialize";
 import ResultsTable from "./ResultsTable";
 
-
 let searchDelay;
 let searchDelayInterval = 500;
 
@@ -61,7 +60,6 @@ class SearchBar extends Component {
   }
 
   doSearch() {
-    console.log("Search called.");
     let searchArray = this.uppercaseFirstLetterArray(this.state.ingredients);
     if (this.state.ingredients) {
       fetch(API_URL, {
@@ -74,7 +72,6 @@ class SearchBar extends Component {
       })
         .then(res => res.json())
         .then(res => {
-          console.log("Search result: ", res);
           this.setState({
             searchResults: res
           });

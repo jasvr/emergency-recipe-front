@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./RecipeFormView.css";
-import IngredientChips from './IngredientChips';
+import IngredientChips from "./IngredientChips";
 import { Redirect } from "react-router-dom";
 import { Row, Col, Card, Input, Button } from "react-materialize";
 
@@ -20,8 +20,7 @@ class RecipeFormView extends Component {
       instructions: "",
       isApproved: true,
       comments: []
-    }
-    
+    };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -42,12 +41,10 @@ class RecipeFormView extends Component {
     this.setState({
       [name]: value
     });
-    console.log(this.state);
   }
 
-  tokenizeStringIntoArray(stringToBeTokenized){
+  tokenizeStringIntoArray(stringToBeTokenized) {
     let tokenArray = stringToBeTokenized.match(/\S+/g);
-    console.log("Token array: ", tokenArray);
     return tokenArray;
   }
 
@@ -57,7 +54,9 @@ class RecipeFormView extends Component {
     if (arrayArg !== null) {
       for (let i = 0; i < arrayArg.length; i++) {
         let currentWord = arrayArg[i];
-        fixedArray.push(currentWord.charAt(0).toUpperCase() + currentWord.slice(1));
+        fixedArray.push(
+          currentWord.charAt(0).toUpperCase() + currentWord.slice(1)
+        );
       }
       return fixedArray;
     } else {
@@ -68,30 +67,30 @@ class RecipeFormView extends Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log("handleSubmit called", this.state);
-    fetch(API_URL, { 
+    fetch(API_URL, {
       method: "POST",
       body: JSON.stringify(this.state),
       headers: {
         "Content-Type": "application/json"
       }
     })
-    .then(res => res.json())
-    .then(res => {
-      console.log("Message from API: ", res);
-      newRecipeID = res._id;
-      shouldRedirect = true;
-    })
-    .then(() => {
-      this.forceUpdate();
-    })
-    .catch(err => {
-      console.log("Error: ", err);
-    })
+      .then(res => res.json())
+      .then(res => {
+        console.log("Message from API: ", res);
+        newRecipeID = res._id;
+        shouldRedirect = true;
+      })
+      .then(() => {
+        this.forceUpdate();
+      })
+      .catch(err => {
+        console.log("Error: ", err);
+      });
   }
 
   render() {
     if (shouldRedirect) {
-      return <Redirect to={"/recipe/" + newRecipeID} />
+      return <Redirect to={"/recipe/" + newRecipeID} />;
     }
 
     return (
@@ -104,6 +103,7 @@ class RecipeFormView extends Component {
               title="Share your recipe with the world!"
               actions={[
                 <Button
+                  key={"new-recipe-form-submit-button"}
                   waves="light"
                   className="pink"
                   onClick={this.handleSubmit}

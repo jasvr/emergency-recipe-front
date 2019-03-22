@@ -33,7 +33,6 @@ class App extends Component {
         isLoggedIn: false
       });
     }
-    console.log(this.state.isLoggedIn);
   }
 
   handleAuthInput(e) {

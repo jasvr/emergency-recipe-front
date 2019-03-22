@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import IngredientChips from "./IngredientChips";
 import './UpdateFormContainer.css';
 import UpdateForm from "./UpdateForm";
 

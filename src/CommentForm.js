@@ -4,7 +4,6 @@ import "./CommentForm.css";
 
 class CommentForm extends Component {
   render() {
-    console.log(this.props);
     return (
       <div>
         <Col s={12} m={5}>

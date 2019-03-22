@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { Row, Col, Card, Input, Button } from "react-materialize";
-import IngredientChips from './IngredientChips';
+import IngredientChips from "./IngredientChips";
 
 const API_URL = "https://emergency-recipe-backend.herokuapp.com/api/recipe/";
 let shouldRedirect = false;
@@ -52,7 +52,9 @@ class UpdateForm extends Component {
     if (arrayArg !== null) {
       for (let i = 0; i < arrayArg.length; i++) {
         let currentWord = arrayArg[i];
-        fixedArray.push(currentWord.charAt(0).toUpperCase() + currentWord.slice(1));
+        fixedArray.push(
+          currentWord.charAt(0).toUpperCase() + currentWord.slice(1)
+        );
       }
       return fixedArray;
     } else {
@@ -60,10 +62,9 @@ class UpdateForm extends Component {
     }
   }
 
-
   handleSubmit(e) {
     e.preventDefault();
-    fetch((API_URL + this.props.match.params.id), {
+    fetch(API_URL + this.props.match.params.id, {
       method: "PUT",
       body: JSON.stringify(this.state),
       headers: {
@@ -72,22 +73,21 @@ class UpdateForm extends Component {
     })
       .then(res => res.json())
       .then(res => {
-        console.log("Message from API: ", res);
         shouldRedirect = true;
       })
-      .then(()=>{
+      .then(() => {
         this.forceUpdate();
       })
       .catch(err => {
         console.log("Error: ", err);
-      })
+      });
   }
 
   render() {
-    if (shouldRedirect){
-      return <Redirect to={"/recipe/" + this.props.match.params.id} />
+    if (shouldRedirect) {
+      return <Redirect to={"/recipe/" + this.props.match.params.id} />;
     }
-    
+
     return (
       <div>
         <Row className="update-form-container">
@@ -98,6 +98,7 @@ class UpdateForm extends Component {
               title="Fix this thing."
               actions={[
                 <Button
+                  key={"update-form-submit-button"}
                   waves="light"
                   className="pink"
                   onClick={this.handleSubmit}

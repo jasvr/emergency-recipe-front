@@ -24,7 +24,6 @@ class Comments extends Component {
     this.setState({
       [event.target.name]: event.target.value
     });
-    console.log(this.state.content);
   }
 
   onSubmit(event) {
@@ -32,7 +31,6 @@ class Comments extends Component {
     let commentPath = this.props.location.pathname;
     if (this.props.isLoggedIn) {
       axios.post(API_URL + commentPath, this.state).then(res => {
-        console.log("response", res);
         this.props.getData();
       });
     } else {

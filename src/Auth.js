@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col, Card, Input } from "react-materialize";
+import { Link } from "react-router-dom";
 import "./Auth.css";
 
 class Auth extends Component {
@@ -7,10 +8,6 @@ class Auth extends Component {
     super(props);
     this.loginAndRedirect = this.loginAndRedirect.bind(this);
     this.signUpAndRedirect = this.signUpAndRedirect.bind(this);
-  }
-
-  componentDidMount() {
-    console.log(this.props);
   }
 
   loginAndRedirect(event) {
@@ -33,40 +30,44 @@ class Auth extends Component {
               textClassName="white-text"
               title="We need to check your ID."
               actions={[
-                <a
+                <Link
+                  key={"1"}
                   id="authenticate-link"
-                  href="#"
                   onClick={this.signUpAndRedirect}
+                  to="/home"
                 >
                   Create A New Account
-                </a>,
-                <a
+                </Link>,
+                <Link
+                  key={"2"}
                   id="authenticate-link"
-                  href="#"
                   onClick={this.loginAndRedirect}
+                  to="/home"
                 >
                   Sign In
-                </a>
+                </Link>
               ]}
             >
               <Row className="auth-inputs">
-                <Input
-                  s={12}
-                  m={6}
-                  l={6}
-                  label="Username"
-                  name="username"
-                  onChange={this.props.handleAuthInput}
-                />
-                <Input
-                  s={12}
-                  m={6}
-                  l={6}
-                  label="Password"
-                  name="password"
-                  type="password"
-                  onChange={this.props.handleAuthInput}
-                />
+                <form>
+                  <Input
+                    s={12}
+                    m={6}
+                    l={6}
+                    label="Username"
+                    name="username"
+                    onChange={this.props.handleAuthInput}
+                  />
+                  <Input
+                    s={12}
+                    m={6}
+                    l={6}
+                    label="Password"
+                    name="password"
+                    type="password"
+                    onChange={this.props.handleAuthInput}
+                  />
+                </form>
               </Row>
             </Card>
           </Col>
