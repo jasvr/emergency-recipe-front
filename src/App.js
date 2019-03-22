@@ -7,6 +7,7 @@ import "./App.css";
 import RecipeView from "./RecipeView.js";
 import RecipeFormView from "./RecipeFormView";
 import Auth from './Auth';
+import UpdateFormContainer from "./UpdateFormContainer";
 
 class App extends Component {
   render() {
@@ -25,14 +26,17 @@ class App extends Component {
                 Submit a Recipe
               </Link>
               <span>&nbsp;|&nbsp;</span>
-              <Link to="/auth" className="link-box-link">Auth</Link>
+              <Link to="/auth" className="link-box-link">
+                Auth
+              </Link>
             </div>
 
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route path="/recipe" component={RecipeView} />
+              <Route path="/recipe/update/:id" component={UpdateFormContainer} />
+              <Route path="/recipe/:id" component={RecipeView} />
               <Route path="/new-recipe" component={RecipeFormView} />
-              {/* <Route path="/auth" component={Auth} /> */}
+              <Route path="/auth" component={Auth} />
             </Switch>
           </main>
         </Container>

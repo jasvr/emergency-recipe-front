@@ -13,7 +13,6 @@ class IngredientChips extends Component {
       });
     }
 
-    console.log("Ingredient props in Chips: ", this.props.ingredients);
     return (
       <div>
         <Row>
